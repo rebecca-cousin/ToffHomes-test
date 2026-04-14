@@ -757,6 +757,20 @@ nav a:hover {
   .lw-why-step-arrow { display: none; }
   .lw-section { padding: 0 20px; }
   .lw-why, .lw-testimonials, .lw-cta { padding: 60px 20px; }
+
+  .lw-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lw-stat {
+    border-right: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .lw-stat:nth-child(2n) { border-right: none; }
+  .lw-stat:nth-child(3),
+  .lw-stat:nth-child(4) { border-bottom: none; }
 }
 
 /* WHATSAPP FLOAT */
