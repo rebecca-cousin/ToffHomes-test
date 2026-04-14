@@ -4,14 +4,12 @@ const cardWidth = () => carousel.querySelector('.lw-dev-card').offsetWidth + 28;
 document.querySelector('.carousel-btn--next').addEventListener('click', () => carousel.scrollBy({ left: cardWidth(), behavior: 'smooth' }));
 document.querySelector('.carousel-btn--prev').addEventListener('click', () => carousel.scrollBy({ left: -cardWidth(), behavior: 'smooth' }));
 
-// Touch/drag swipe
-let startX = 0, isDragging = false;
-carousel.addEventListener('mousedown', e => { isDragging = true; startX = e.pageX; carousel.style.cursor = 'grabbing'; });
+// Touch/drag swipe (mouse only — touch handled natively by CSS)
+let isDragging = false;
+carousel.addEventListener('mousedown', e => { isDragging = true; carousel.style.cursor = 'grabbing'; });
 carousel.addEventListener('mousemove', e => { if (!isDragging) return; carousel.scrollLeft -= e.movementX; });
 carousel.addEventListener('mouseup', () => { isDragging = false; carousel.style.cursor = 'grab'; });
 carousel.addEventListener('mouseleave', () => { isDragging = false; carousel.style.cursor = 'grab'; });
-carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-carousel.addEventListener('touchmove', e => { carousel.scrollLeft -= e.touches[0].clientX - startX; startX = e.touches[0].clientX; }, { passive: true });
 
 // Property modal slideshow
 const modal = document.getElementById('propModal');

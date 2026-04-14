@@ -353,6 +353,8 @@ nav a:hover {
   gap: 28px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
   cursor: grab;
   padding-bottom: 12px;
   scrollbar-width: none;
