@@ -75,12 +75,14 @@ nav a:hover {
   height: 3px;
   background: #2563eb;
   margin: 3px 0;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   border-radius: 2px;
+  transform-origin: center;
+  display: block;
 }
 
 .hamburger.active span:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
+  transform: translateY(9px) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -88,7 +90,7 @@ nav a:hover {
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 @media (max-width: 768px) {

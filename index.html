@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <base href="/real-estate/">
 
  
 
@@ -11,6 +12,7 @@
   <title>Toff Homes | Premium Real Estate in Nigeria</title>
   <link rel="stylesheet" href="./css/layout.css" />
   <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
 
@@ -22,7 +24,7 @@
     </div>
     <nav>
       <a href="#hero">Home</a>
-       <a href="#developments">Projects</a>
+       <a href="./pages/property.html">Projects</a>
       <a href="./pages/about.html">About</a>
       <a href="#contact">Contact us</a>
     </nav>
@@ -76,73 +78,57 @@
       <h2>Premium Properties Across Nigeria</h2>
       <p class="lw-section-sub">Carefully selected locations with high appreciation potential and world-class amenities.</p>
     </div>
-    <div class="lw-carousel-wrapper">
-      <button class="carousel-btn carousel-btn--prev" aria-label="Previous">&#8592;</button>
-      <div class="lw-carousel" id="propCarousel">
+    <div class="lw-carousel" id="propCarousel">
 
-        <div class="lw-dev-card" data-title="Toff Residence" data-location="Epe, Lagos State" data-price="₦5,000,000" data-tags="Excision Title,Paved Roads,24/7 Security,Swimming Pool" data-desc="Gated estate with government excision title. Serene waterfront community minutes from the Lekki-Epe Expressway. The estate features beautifully landscaped surroundings, a community clubhouse, and direct access to the waterfront. Ideal for families and investors seeking long-term appreciation." data-imgs="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80,https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80,https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80,https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Toff Residence Epe" />
-          <div class="lw-dev-badge">FEATURED</div>
-          <div class="lw-dev-body">
-            <p class="lw-dev-location">📍 Epe, Lagos State</p>
-            <h3>Toff Residence</h3>
-            <p class="lw-dev-desc">Gated estate with government excision title. Serene waterfront community minutes from the Lekki-Epe Expressway.</p>
-            <div class="lw-dev-tags"><span>Excision Title</span><span>Paved Roads</span><span>24/7 Security</span><span>Swimming Pool</span></div>
-            <div class="lw-dev-price-row">
-              <div><p class="lw-dev-price-label">Starting From</p><p class="lw-dev-price">₦5,000,000</p></div>
-              <button class="lw-btn-primary lw-btn-sm lw-card-btn">View Details</button>
-            </div>
+      <div class="lw-dev-card" data-title="Toff Residence" data-location="Epe, Lagos State" data-price="&#8358;5,000,000" data-tags="Excision Title,Paved Roads,24/7 Security,Swimming Pool" data-desc="Gated estate with government excision title. Serene waterfront community minutes from the Lekki-Epe Expressway. The estate features beautifully landscaped surroundings, a community clubhouse, and direct access to the waterfront." data-imgs="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80,https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80,https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80,https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Toff Residence Epe" />
+        <div class="lw-dev-badge">FEATURED</div>
+        <div class="lw-dev-body">
+          <p class="lw-dev-location">&#128205; Epe, Lagos State</p>
+          <h3>Toff Residence</h3>
+          <p class="lw-dev-desc">Gated estate with government excision title. Serene waterfront community minutes from the Lekki-Epe Expressway.</p>
+          <div class="lw-dev-tags"><span>Excision Title</span><span>Paved Roads</span><span>24/7 Security</span><span>Swimming Pool</span></div>
+          <div class="lw-dev-price-row">
+            <div><p class="lw-dev-price-label">Starting From</p><p class="lw-dev-price">&#8358;5,000,000</p></div>
           </div>
         </div>
-
-        <div class="lw-dev-card" data-title="Eyitayo Estate" data-location="Ido, Ibadan, Oyo State" data-price="₦8,000,000" data-tags="C of O,Electricity,Clean Water,CCTV" data-desc="Certificate of Occupancy estate in the heart of Ibadan's fastest-growing corridor. Ideal for families and investors. The estate offers fully serviced plots with underground drainage, street lighting, and a dedicated residents' association for community management." data-imgs="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80,https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80,https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80,https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80">
-          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Eyitayo Estate Ibadan" />
-          <div class="lw-dev-body">
-            <p class="lw-dev-location">📍 Ido, Ibadan, Oyo State</p>
-            <h3>Eyitayo Estate</h3>
-            <p class="lw-dev-desc">Certificate of Occupancy estate in the heart of Ibadan's fastest-growing corridor. Ideal for families and investors.</p>
-            <div class="lw-dev-tags"><span>C of O</span><span>Electricity</span><span>Clean Water</span><span>CCTV</span></div>
-            <div class="lw-dev-price-row">
-              <div><p class="lw-dev-price-label">Starting From</p><p class="lw-dev-price">₦8,000,000</p></div>
-              <button class="lw-btn-primary lw-btn-sm lw-card-btn">View Details</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="lw-dev-card" data-title="Toff Estate Moniya" data-location="Moniya, Ibadan, Oyo State" data-price="₦6,500,000" data-tags="C of O,Drainage,Sewage System,Perimeter Fence" data-desc="Strategically located along the Ibadan-Lagos expressway. C of O title with full infrastructure already in place. The estate sits within a rapidly developing corridor with proximity to the new Ibadan airport and major commercial hubs, making it a prime investment opportunity." data-imgs="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80,https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80,https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80,https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80">
-          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Toff Estate Moniya" />
-          <div class="lw-dev-body">
-            <p class="lw-dev-location">📍 Moniya, Ibadan, Oyo State</p>
-            <h3>Toff Estate Moniya</h3>
-            <p class="lw-dev-desc">Strategically located along the Ibadan-Lagos expressway. C of O title with full infrastructure already in place.</p>
-            <div class="lw-dev-tags"><span>C of O</span><span>Drainage</span><span>Sewage System</span><span>Perimeter Fence</span></div>
-            <div class="lw-dev-price-row">
-              <div><p class="lw-dev-price-label">Starting From</p><p class="lw-dev-price">₦6,500,000</p></div>
-              <button class="lw-btn-primary lw-btn-sm lw-card-btn">View Details</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="lw-dev-card" data-title="Toff Gardens Abuja" data-location="Kuje, Abuja, FCT" data-price="₦12,000,000" data-tags="R of O,Tarred Roads,Solar Lighting,Green Spaces" data-desc="Premium residential plots in Abuja's expanding satellite towns. Proximity to the airport and major government institutions. The development features wide tarred roads, solar-powered street lighting, beautifully maintained green spaces, and a secure perimeter with controlled access gates." data-imgs="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80,https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80,https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80,https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80">
-          <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80" alt="Toff Gardens Abuja" />
-          <div class="lw-dev-body">
-            <p class="lw-dev-location">📍 Kuje, Abuja, FCT</p>
-            <h3>Toff Gardens Abuja</h3>
-            <p class="lw-dev-desc">Premium residential plots in Abuja's expanding satellite towns. Proximity to the airport and major government institutions.</p>
-            <div class="lw-dev-tags"><span>R of O</span><span>Tarred Roads</span><span>Solar Lighting</span><span>Green Spaces</span></div>
-            <div class="lw-dev-price-row">
-              <div><p class="lw-dev-price-label">Starting From</p><p class="lw-dev-price">₦12,000,000</p></div>
-              <button class="lw-btn-primary lw-btn-sm lw-card-btn">View Details</button>
-            </div>
-          </div>
-        </div>
-
+        <button class="lw-btn-outline">View Details</button>
       </div>
-      <button class="carousel-btn carousel-btn--next" aria-label="Next">&#8594;</button>
+
+      <div class="lw-dev-card" data-title="Eyitayo Estate" data-location="Ido, Ibadan, Oyo State" data-price="&#8358;8,000,000" data-tags="C of O,Electricity,Clean Water,CCTV" data-desc="Certificate of Occupancy estate in the heart of Ibadan fastest-growing corridor. Ideal for families and investors. The estate offers fully serviced plots with underground drainage and street lighting." data-imgs="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80,https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80,https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80,https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Eyitayo Estate Ibadan" />
+        <div class="lw-dev-body">
+          <p class="lw-dev-location">&#128205; Ido, Ibadan, Oyo State</p>
+          <h3>Eyitayo Estate</h3>
+          <p class="lw-dev-desc">Certificate of Occupancy estate in the heart of Ibadan fastest-growing corridor. Ideal for families and investors.</p>
+          <div class="lw-dev-tags"><span>C of O</span><span>Electricity</span><span>Clean Water</span><span>CCTV</span></div>
+          <div class="lw-dev-price-row">
+            <div><p class="lw-dev-price-label">Starting From</p><p class="lw-dev-price">&#8358;8,000,000</p></div>
+          </div>
+        </div>
+        <button class="lw-btn-outline">View Details</button>
+      </div>
+
+      <div class="lw-dev-card" data-title="Toff Gardens Abuja" data-location="Kuje, Abuja, FCT" data-price="&#8358;12,000,000" data-tags="R of O,Tarred Roads,Solar Lighting,Green Spaces" data-desc="Premium residential plots in Abuja expanding satellite towns. Proximity to the airport and major government institutions. Features wide tarred roads and solar-powered street lighting." data-imgs="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80,https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80,https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80,https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80" alt="Toff Gardens Abuja" />
+        <div class="lw-dev-body">
+          <p class="lw-dev-location">&#128205; Kuje, Abuja, FCT</p>
+          <h3>Toff Gardens Abuja</h3>
+          <p class="lw-dev-desc">Premium residential plots in Abuja expanding satellite towns. Proximity to the airport and major government institutions.</p>
+          <div class="lw-dev-tags"><span>R of O</span><span>Tarred Roads</span><span>Solar Lighting</span><span>Green Spaces</span></div>
+          <div class="lw-dev-price-row">
+            <div><p class="lw-dev-price-label">Starting From</p><p class="lw-dev-price">&#8358;12,000,000</p></div>
+          </div>
+        </div>
+        <button class="lw-btn-outline">View Details</button>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a href="#contact" class="lw-btn-primary" style="padding:14px 40px;">View More Properties</a>
     </div>
   </section>
 
-  <!-- WHY INVEST -->
   <section class="lw-why" id="why-invest">
     <div class="lw-section-header lw-section-header--white">
       <p class="lw-section-tag lw-section-tag--light">WHY INVEST WITH TOFF HOMES</p>
@@ -274,7 +260,8 @@
     <div class="cf-panel">
       <div class="cf-panel-overlay"></div>
       <div class="cf-panel-content">
-       <!-- <p class="cf-panel-tag">GET IN TOUCH</p>
+      
+        <!-- <p class="cf-panel-tag">GET IN TOUCH</p>
         <h2 class="cf-panel-title">Let&rsquo;s Help You Find Your Dream Property</h2>
         <p class="cf-panel-sub">Our consultants are ready to guide you &mdash; free consultation, no obligation.</p>
         <div class="cf-details">
@@ -294,6 +281,7 @@
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             <span>Mon &ndash; Fri: 9am &ndash; 5pm &nbsp;|&nbsp; Sat: 9am &ndash; 4pm</span>
           </div>-->
+          
         </div>
       </div>
     </div>
@@ -343,6 +331,9 @@
     </div>
 
   </section>
+
+  <!-- DIVIDER -->
+  <div class="section-divider"></div>
 
   <!-- FOOTER -->
   <footer class="lw-footer">

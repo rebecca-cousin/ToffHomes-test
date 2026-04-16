@@ -75,12 +75,14 @@ nav a:hover {
   height: 3px;
   background: #2563eb;
   margin: 3px 0;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   border-radius: 2px;
+  transform-origin: center;
+  display: block;
 }
 
 .hamburger.active span:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
+  transform: translateY(9px) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -88,7 +90,7 @@ nav a:hover {
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 @media (max-width: 768px) {
@@ -221,15 +223,21 @@ nav a:hover {
 }
 
 .lw-btn-outline {
-  padding: 14px 32px;
+  padding: 12px;
   border: 2px solid #1d4ed8;;
   color: #1d4ed8;;
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   transition: background 0.2s, color 0.2s;
-  display: inline-block;
+  display: block;
+  width: calc(100% - 44px);
+  margin: 0 22px 22px;
+  border: none;
+  cursor: pointer;
+
+
 }
 
 .lw-btn-outline:hover {
@@ -341,47 +349,19 @@ nav a:hover {
 .lw-section-sub--light { color: #cbd5e1; }
 
 /* CAROUSEL */
-.lw-carousel-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
 .lw-carousel {
   display: flex;
-  gap: 28px;
+  gap: 24px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-x;
-  cursor: grab;
   padding-bottom: 12px;
   scrollbar-width: none;
 }
 
-.lw-carousel:active { cursor: grabbing; }
-
 .lw-carousel::-webkit-scrollbar { display: none; }
-
-.carousel-btn {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid #2563eb;
-  background: #fff;
-  color: #2563eb;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-btn:hover { background: #2563eb; color: #fff; }
 
 /* CARD */
 .lw-dev-card {
@@ -393,13 +373,47 @@ nav a:hover {
   position: relative;
   display: flex;
   flex-direction: column;
-  flex: 0 0 300px;
+  flex: 0 0 calc(33.333% - 16px);
   scroll-snap-align: start;
+}
+
+@media (max-width: 768px) {
+  .lw-dev-card { flex: 0 0 80vw; }
+}
+
+.lw-card-view-btn {
+  display: block;
+  width: calc(100% - 44px);
+  margin: 0 22px 22px;
+  padding: 12px;
+  background: #1d4ed8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  text-align: center;
+}
+
+.lw-card-view-btn:hover {
+  background: #1e3a8a;
+  transform: translateY(-2px);
 }
 
 .lw-dev-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 32px rgba(37,99,235,0.15);
+}
+
+.lw-dev-price-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+  margin-top: auto;
 }
 
 .lw-dev-card img {
@@ -1153,7 +1167,8 @@ nav a:hover {
 .cf-panel-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, rgba(15,23,42,0.55) 0%, rgba(30,58,138,0.88) 100%);
+  /*background: linear-gradient(160deg, rgba(15,23,42,0.55) 
+  0%, rgba(30,58,138,0.88) 100%);*/
 }
 
 .cf-panel-content {
