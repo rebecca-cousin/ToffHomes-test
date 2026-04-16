@@ -110,6 +110,10 @@ nav a:hover {
   nav {
     display: none;
   }
+  .hamburger {
+    display: flex;
+  }
+
 
   nav.nav-open {
     display: flex;
