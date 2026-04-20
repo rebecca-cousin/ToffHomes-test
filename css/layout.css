@@ -4,7 +4,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 8px 60px;
-  background: #eff6ff;
+  background: #f0f8ff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   position: sticky;
   top: 0;
@@ -34,7 +34,7 @@ header.header-scrolled {
 .logo {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #000000;
   white-space: nowrap;
 }
 
@@ -52,8 +52,8 @@ nav a {
 }
 
 nav a:hover { 
-  color: #2563eb;
-  border-bottom: 2px solid #2563eb; 
+  color: #3498DB;
+  border-bottom: 2px solid #3498DB; 
 }
 
 /* HAMBURGER MENU */
@@ -73,7 +73,7 @@ nav a:hover {
 .hamburger span {
   width: 24px;
   height: 3px;
-  background: #2563eb;
+  background: #3498DB;
   margin: 3px 0;
   transition: all 0.3s ease;
   border-radius: 2px;
@@ -105,7 +105,7 @@ nav a:hover {
     top: 100%;
     left: 0;
     right: 0;
-    background: #eff6ff;
+    background: #f0f8ff;
     padding: 20px 0;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     z-index: 99;
@@ -122,7 +122,7 @@ nav a:hover {
 
   nav.nav-open a:hover {
     background: rgba(37, 99, 235, 0.1);
-    color: #2563eb;
+    color: #3498DB;
   }
 
   .nav-backdrop {
@@ -187,13 +187,13 @@ nav a:hover {
 .ab-intro-text h2 {
   font-size: 2rem;
   font-weight: 800;
-  color: #1e293b;
+  color: #000000;
   margin: 12px 0 20px;
 }
 
 .ab-intro-text p {
   font-size: 0.95rem;
-  color: #64748b;
+  color: #7F8C8D;
   line-height: 1.8;
   margin-bottom: 14px;
 }
@@ -220,7 +220,7 @@ nav a:hover {
   padding: 40px 32px;
   background: #fff;
   border-radius: 14px;
-  border-top: 3px solid #2563eb;
+  border-top: 3px solid #3498DB;
   box-shadow: 0 4px 24px rgba(0,0,0,0.06);
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -239,13 +239,13 @@ nav a:hover {
 .ab-mv-card h3 {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #000000;
   margin-bottom: 12px;
 }
 
 .ab-mv-card p {
   font-size: 0.9rem;
-  color: #64748b;
+  color: #7F8C8D;
   line-height: 1.8;
 }
 
@@ -264,13 +264,13 @@ nav a:hover {
 .ab-values-header h2 {
   font-size: 2rem;
   font-weight: 800;
-  color: #1e293b;
+  color: #000000;
   margin: 10px 0 12px;
 }
 
 .ab-values-header p {
   font-size: 0.95rem;
-  color: #64748b;
+  color: #7F8C8D;
   line-height: 1.75;
 }
 
@@ -286,7 +286,7 @@ nav a:hover {
   background: #fff;
   border-radius: 14px;
   padding: 36px 32px;
-  border-left: 4px solid #2563eb;
+  border-left: 4px solid #3498DB;
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -304,13 +304,13 @@ nav a:hover {
 .ab-val-card h3 {
   font-size: 1rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #000000;
   margin-bottom: 8px;
 }
 
 .ab-val-card p {
   font-size: 0.88rem;
-  color: #64748b;
+  color: #7F8C8D;
   line-height: 1.7;
   margin: 0;
 }
@@ -350,7 +350,7 @@ nav a:hover {
 .ab-team-body h3 {
   font-size: 1rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #000000;
   margin-bottom: 4px;
 }
 
@@ -359,19 +359,19 @@ nav a:hover {
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #2563eb;
+  color: #3498DB;
   margin-bottom: 10px;
 }
 
 .ab-team-body p {
   font-size: 0.85rem;
-  color: #64748b;
+  color: #7F8C8D;
   line-height: 1.65;
 }
 
 /* WHY CHOOSE US STRIP */
 .ab-why-strip {
-  background: #0f172a;
+  background: #000000;
   padding: 36px 40px;
 }
 

@@ -106,7 +106,7 @@ function formatPrice(price) {
 
 function createCard(property) {
   return `
-    <div class="card">
+    <div class="card" data-title="${property.title}" data-location="${property.location}" data-price="${formatPrice(property.price)}" data-tags="${property.beds} Beds,${property.baths} Baths,${property.sqft.toLocaleString()} sqft,${property.type}" data-desc="${property.title} located in ${property.location}. A ${property.type} featuring ${property.beds} bedrooms, ${property.baths} bathrooms and ${property.sqft.toLocaleString()} sqft of living space." data-imgs="${property.image}">
       <img class="card-img" src="${property.image}" alt="${property.title}" loading="lazy" />
       <div class="card-body">
         <span class="card-badge">${property.type}</span>
@@ -118,7 +118,7 @@ function createCard(property) {
           <span>🚿 ${property.baths} Baths</span>
           <span>📐 ${property.sqft.toLocaleString()} sqft</span>
         </div>
-        <a href="#" class="btn-view">View Property</a>
+        <a href="javascript:void(0)" class="btn-view">View Property</a>
       </div>
     </div>
   `;
