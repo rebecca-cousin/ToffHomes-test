@@ -82,9 +82,11 @@ if (modal) {
   });
 }
 
-// Contact form validation
+// Contact form validation + EmailJS
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
+  emailjs.init('YOUR_PUBLIC_KEY');
+
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     let valid = true;
@@ -107,11 +109,34 @@ if (contactForm) {
         el.classList.remove('cf-invalid');
       }
     });
+
     if (valid) {
-      this.reset();
-      const s = document.getElementById('formSuccess');
-      s.style.display = 'block';
-      setTimeout(() => s.style.display = 'none', 5000);
+      const submitBtn = contactForm.querySelector('.cf-submit');
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      const templateParams = {
+        name:     document.getElementById('cf-name').value.trim(),
+        email:    document.getElementById('cf-email').value.trim(),
+        phone:    document.getElementById('cf-phone').value.trim(),
+        property: document.getElementById('cf-property').value || 'Not specified',
+        message:  document.getElementById('cf-message').value.trim()
+      };
+
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(() => {
+          this.reset();
+          const s = document.getElementById('formSuccess');
+          s.style.display = 'block';
+          setTimeout(() => s.style.display = 'none', 5000);
+          submitBtn.textContent = 'Send Message';
+          submitBtn.disabled = false;
+        })
+        .catch(() => {
+          alert('Failed to send message. Please try again or call us directly.');
+          submitBtn.textContent = 'Send Message';
+          submitBtn.disabled = false;
+        });
     }
   });
 }

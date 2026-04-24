@@ -23,6 +23,11 @@ h1, h2, h3, h4, h5, h6,
   font-family: 'Montserrat', sans-serif;
 }
 
+/* SCROLL MARGIN FOR STICKY HEADER */
+section, .cf-section {
+  scroll-margin-top: 70px;
+}
+
 /* HEADER */
 header {
   display: flex;
@@ -40,6 +45,12 @@ header {
 header.header-scrolled {
   padding: 4px 60px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+/*LOGO REDIRECT*/
+a img {
+    border: none; /* Removes old-style browser border */
+    text-decoration: none; /* Ensures no underlines */
 }
 
 .brand {
@@ -222,6 +233,7 @@ nav a:hover {
   padding: 14px;
   background: var(--deep);
   color: #fff;
+  border: 2px solid transparent;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 700;
@@ -231,7 +243,9 @@ nav a:hover {
 }
 
 .lw-btn-primary:hover {
-  background: #fff;
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
   transform: translateY(-2px);
 }
 
@@ -255,7 +269,7 @@ nav a:hover {
   text-decoration: none;
   font-weight: 700;
   font-size: 0.92rem;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
   display: block;
   width: calc(100% - 44px);
   margin: 0 22px 22px;
@@ -266,8 +280,11 @@ nav a:hover {
 }
 
 .lw-btn-outline:hover {
-  background: #fff;
-  color: var(--deep);
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52,152,219,0.35);
 }
 
 .lw-btn-sm {
@@ -777,7 +794,7 @@ nav a:hover {
 
 .lw-testi-author strong {
   display: block;
-  color: #fff;
+  color: #555;
   font-size: 0.9rem;
 }
 
