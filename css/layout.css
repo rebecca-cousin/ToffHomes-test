@@ -455,3 +455,13 @@ nav a:hover {
   .ab-team-role { font-size: 0.68rem; }
   .ab-team-body p { font-size: 0.75rem; line-height: 1.5; }
 }
+
+@media (max-width: 768px) {
+  .ab-team-img img { height: 200px; }
+  .ab-team-body p { display: block; font-size: 0.8rem; }
+}
+
+@media (max-width: 480px) {
+  .ab-team-img img { height: 180px; }
+  .ab-team-body p { display: block; font-size: 0.75rem; line-height: 1.5; }
+}
