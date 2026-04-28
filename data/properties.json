@@ -1,0 +1,55 @@
+[
+  {
+    "id": 1,
+    "title": "Toff Residence",
+    "location": "Ibonwon-Eredo, Epe, Lagos",
+    "price": "₦5,000,000",
+    "documentation": "Government Excision",
+    "tags": ["Electricity 24/7", "Clean Water", "CCTV 24/7", "Security", "Drainage", "Sewage System", "Swimming Pool", "Paved Road", "Perimeter Fencing"],
+    "description": "Gated estate with government excision title. Serene waterfront community minutes from the Lekki-Epe Expressway. Features beautifully landscaped surroundings, a community clubhouse, and direct waterfront access.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
+    ],
+    "category": "lagos",
+    "priceValue": 5000000,
+    "featured": false
+  },
+
+  {
+    "id": 2,
+    "title": "Eyitayo Estate",
+    "location": "Ido, Ibadan, Oyo State",
+    "price": "₦8,000,000",
+    "documentation": "Certificate Of Occupancy",
+    "tags": ["Electricity 24/7", "Clean Water", "CCTV 24/7", "Security", "Drainage", "Sewage System", "Swimming Pool", "Paved Road", "Perimeter Fencing"],
+    "description": "Certificate of Occupancy estate in the heart of Ibadan's fastest-growing corridor. Fully serviced plots with underground drainage, street lighting, and a dedicated residents' association.",
+    "images": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+      "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+    ],
+    "category": "ibadan",
+    "priceValue": 8000000,
+    "featured": true
+  },
+
+  {
+    "id": 3,
+    "title": "Toff Estate Moniya",
+    "location": "Moniya, Ibadan, Oyo State",
+    "price": "₦6,500,000",
+    "documentation": "Certificate Of Occupancy",
+    "tags": ["Electricity 24/7", "Clean Water", "CCTV 24/7", "Security", "Drainage", "Sewage System", "Swimming Pool", "Paved Road", "Perimeter Fencing"],
+    "description": "Strategically located along the Ibadan-Lagos expressway with C of O title and full infrastructure already in place. Proximity to the new Ibadan airport and major commercial hubs.",
+    "images": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+      "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80"
+    ],
+    "category": "ibadan",
+    "priceValue": 6500000,
+    "featured": false
+  }
+]

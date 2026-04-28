@@ -40,37 +40,34 @@
 
   <!-- HERO / SEARCH -->
   <section class="hero">
-    <h1>Discover Most Suitable Property for You</h1>
-    <p>Finding the perfect place to call home can be hard. Our team of creatives and specialists makes real estate easy.</p>
+    <h1>Premium Land & Estate Development Projects</h1>
+    <p>Secure your future with verified government-approved land in Nigeria's fastest-growing locations. Every estate comes fully serviced with infrastructure already in place.</p>
     <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search by location, type, or keyword..." />
+      <input type="text" id="searchInput" placeholder="Search by location (Lagos, Ibadan, Abuja)..." />
       <button onclick="filterProperties()">Search</button>
     </div>
 
     <!-- FILTERS -->
     <div class="filters">
       <select id="typeFilter" onchange="filterProperties()">
-        <option value="">All Types</option>
-        <option value="house">House</option>
-        <option value="apartment">Apartment</option>
-        <option value="condo">Condo</option>
-        <option value="villa">Villa</option>
+        <option value="">All Locations</option>
+        <option value="lagos">Lagos</option>
+        <option value="ibadan">Ibadan</option>
+        <option value="abuja">Abuja</option>
       </select>
 
       <select id="priceFilter" onchange="filterProperties()">
         <option value="">Any Price</option>
-        <option value="100000000">Under ₦100,000,000</option>
-        <option value="200000000">Under ₦200,000,000</option>
-        <option value="300000000">Under ₦300,000,000</option>
-        <option value="500000000">Under ₦500,000,000</option>
+        <option value="5000000">Under ₦5,000,000</option>
+        <option value="8000000">Under ₦8,000,000</option>
+        <option value="10000000">Under ₦10,000,000</option>
+        <option value="15000000">Under ₦15,000,000</option>
       </select>
 
       <select id="bedsFilter" onchange="filterProperties()">
-        <option value="">Any Beds</option>
-        <option value="1">1+ Beds</option>
-        <option value="2">2+ Beds</option>
-        <option value="3">3+ Beds</option>
-        <option value="4">4+ Beds</option>
+        <option value="">Documentation</option>
+        <option value="excision">Government Excision</option>
+        <option value="coo">Certificate of Occupancy</option>
       </select>
     </div>
   </section>
@@ -80,77 +77,15 @@
     <span id="resultsCount"></span>
   </div>
 
-  <!-- PROPERTY LISTINGS -->
-  <section class="listings" id="listingsGrid"></section>
-
   <!-- NO RESULTS -->
   <div class="no-results" id="noResults" style="display:none;">
-    <p>😕 No properties found. Try adjusting your search.</p>
+    <p>😕 No estates found. Try adjusting your search criteria.</p>
   </div>
 
   <!-- COMMUNITIES -->
   <section class="communities">
     <div class="community-grid">
-      <div class="community-card" data-title="Toff Residence" data-location="Ibonwon-Eredo, Epe, Lagos" data-price="₦5,000,000" data-tags="Electricity 24/7,Clean Water,CCTV 24/7,Security,Drainage,Sewage System,Swimming Pool,Paved Road,Perimeter Fencing" data-desc="Gated estate with government excision title. Serene waterfront community minutes from the Lekki-Epe Expressway. Features beautifully landscaped surroundings, a community clubhouse, and direct waterfront access." data-imgs="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80,https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80,https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Toff Residence" />
-        <div class="community-body">
-          <h3>Toff Residence</h3>
-          <p>Location: Ibonwon-Eredo Epe</p>
-          <p>Government Excision</p>
-          <div class="features">
-            <span>Electricity 24/7</span>
-            <span>Clean water</span>
-            <span>CCTV 24/7</span>
-            <span>Security</span>
-            <span>Drainage</span>
-            <span>Sewage system</span>
-            <span>Swimming pool</span>
-            <span>Paved road</span>
-            <span>Perimeter fencing</span>
-          </div>
-          <a href="javascript:void(0)" class="btn-view">View Details</a>
-        </div>
-      </div>
-      <div class="community-card" data-title="Eyitayo Estate" data-location="Ido, Ibadan, Oyo State" data-price="₦8,000,000" data-tags="Electricity 24/7,Clean Water,CCTV 24/7,Security,Drainage,Sewage System,Swimming Pool,Paved Road,Perimeter Fencing" data-desc="Certificate of Occupancy estate in the heart of Ibadan's fastest-growing corridor. Fully serviced plots with underground drainage, street lighting, and a dedicated residents' association." data-imgs="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80,https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80,https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80">
-        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="EYITAYO ESTATE" />
-        <div class="community-body">
-          <h3>EYITAYO ESTATE</h3>
-          <p>Location: IDO, IBADAN</p>
-          <p>Certificate Of Occupancy</p>
-          <div class="features">
-            <span>Electricity 24/7</span>
-            <span>Clean water</span>
-            <span>CCTV 24/7</span>
-            <span>Security</span>
-            <span>Drainage</span>
-            <span>Sewage system</span>
-            <span>Swimming pool</span>
-            <span>Paved road</span>
-            <span>Perimeter fencing</span>
-          </div>
-          <a href="javascript:void(0)" class="btn-view">View Details</a>
-        </div>
-      </div>
-      <div class="community-card" data-title="Toff Estate Moniya" data-location="Moniya, Ibadan, Oyo State" data-price="₦6,500,000" data-tags="Electricity 24/7,Clean Water,CCTV 24/7,Security,Drainage,Sewage System,Swimming Pool,Paved Road,Perimeter Fencing" data-desc="Strategically located along the Ibadan-Lagos expressway with C of O title and full infrastructure already in place. Proximity to the new Ibadan airport and major commercial hubs." data-imgs="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80,https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80,https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80">
-        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Toff ESTATE" />
-        <div class="community-body">
-          <h3>Toff ESTATE</h3>
-          <p>Location: MONIYA, IBADAN</p>
-          <p>Certificate Of Occupancy</p>
-          <div class="features">
-            <span>Electricity 24/7</span>
-            <span>Clean water</span>
-            <span>CCTV 24/7</span>
-            <span>Security</span>
-            <span>Drainage</span>
-            <span>Sewage system</span>
-            <span>Swimming pool</span>
-            <span>Paved road</span>
-            <span>Perimeter fencing</span>
-          </div>
-          <a href="javascript:void(0)" class="btn-view">          <a href="javascript:void(0)" class="btn-view">View Details</a>
-        </div>
-      </div>
+      <!-- Properties will be loaded dynamically from properties.json -->
     </div>
   </section>
 
@@ -278,8 +213,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script src="../js/nav.js" defer></script>
 <script src="../js/scroll-animations.js" defer></script>
-<script src="../js/listings.js" defer></script>
 <script src="../js/properties.js" defer></script>
+<script src="../js/property-manager.js" defer></script>
 
 </body>
 </html>

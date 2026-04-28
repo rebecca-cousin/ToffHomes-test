@@ -1132,6 +1132,7 @@ nav a:hover {
   margin-bottom: 18px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--black);
+  text-align: left;
 }
 
 .lw-footer-col ul {
@@ -1139,6 +1140,8 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding-left: 0;
+  margin: 0;
 }
 
 .lw-footer-col ul li {
@@ -1148,6 +1151,7 @@ nav a:hover {
   display: flex;
   align-items: flex-start;
   gap: 8px;
+  text-align: left;
 }
 
 .lw-footer-col ul li svg {
