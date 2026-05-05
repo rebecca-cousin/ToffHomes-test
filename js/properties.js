@@ -30,9 +30,24 @@ if (modal) {
     modalImg.alt = card.dataset.title;
     document.getElementById('propModalTitle').textContent = card.dataset.title;
     document.getElementById('propModalLocation').textContent = '📍 ' + card.dataset.location;
-    document.getElementById('propModalDesc').textContent = card.dataset.desc;
+    document.getElementById('propModalDesc').innerHTML = card.dataset.desc;
     document.getElementById('propModalPrice').textContent = card.dataset.price;
     document.getElementById('propModalTags').innerHTML = card.dataset.tags.split(',').map(t => `<span>${t.trim()}</span>`).join('');
+
+    const plansContainer = document.getElementById('propModalPlans');
+    if (plansContainer) {
+      const plans = card.dataset.plans;
+      if (plans) {
+        const rows = JSON.parse(plans).map(p =>
+          `<tr><td>${p.plotSize}</td><td>${p.price}</td><td>${p.initialDeposit}</td><td>${p.paymentPlan}</td></tr>`
+        ).join('');
+        plansContainer.innerHTML = `<table class="prop-plans-table"><thead><tr><th>Plot Size</th><th>Price</th><th>Initial Deposit</th><th>Payment Plan</th></tr></thead><tbody>${rows}</tbody></table>`;
+        plansContainer.style.display = 'block';
+      } else {
+        plansContainer.innerHTML = '';
+        plansContainer.style.display = 'none';
+      }
+    }
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     startAutoSlide();

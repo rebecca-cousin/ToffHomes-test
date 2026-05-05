@@ -18,12 +18,10 @@
   <!-- HEADER -->
   <header>
     <div class="brand">
-      <a href="#hero">
-      <img src="./img/logo.jpg" class="brand-logo" alt="Toff Homes Logo"> 
-      
+      <a href="#hero" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+        <img src="./img/logo.jpg" class="brand-logo" alt="Toff Homes Logo">
+        <span class="logo">TOFF HOMES</span>
       </a>
-
-      <span class="logo">TOFF HOMES</span>
     </div>
     <nav>
       <a href="#hero">Home</a>
@@ -136,42 +134,41 @@
     <div class="lw-section-header lw-section-header--white">
       <p class="lw-section-tag lw-section-tag--light">WHY INVEST WITH TOFF HOMES</p>
       <h2>Your Investment Is Safe With Us</h2>
-      <p class="lw-section-sub lw-section-sub--light">We combine legal security, infrastructure delivery, 
-        and market expertise to protect and grow your wealth.</p>
+
     </div>
     <div class="lw-why-steps">
       <div class="lw-why-step">
-        <div class="lw-why-step-icon">01</div>
+        <div class="lw-why-step-icon"><svg width="32" height="32" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <h3>Verified Titles</h3>
         <p>C of O, Excision, or R of O on every property.</p>
       </div>
       <div class="lw-why-step-arrow"></div>
       <div class="lw-why-step">
-        <div class="lw-why-step-icon">02</div>
+        <div class="lw-why-step-icon"><svg width="32" height="32" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
         <h3>High Appreciation</h3>
         <p>30–60% value growth recorded in the last 3 years.</p>
       </div>
       <div class="lw-why-step-arrow"></div>
       <div class="lw-why-step">
-        <div class="lw-why-step-icon">03</div>
+        <div class="lw-why-step-icon"><svg width="32" height="32" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-4"/><path d="M12 20v-5"/><path d="M6 20v-5"/><path d="M9 20H3"/></svg></div>
         <h3>Infrastructure First</h3>
         <p>Roads, water & electricity in place before you buy.</p>
       </div>
       <div class="lw-why-step-arrow"></div>
       <div class="lw-why-step">
-        <div class="lw-why-step-icon">04</div>
+        <div class="lw-why-step-icon"><svg width="32" height="32" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <h3>Zero-Interest Plans</h3>
         <p>Spread payments over 6–24 months, no extra cost.</p>
       </div>
       <div class="lw-why-step-arrow"></div>
       <div class="lw-why-step">
-        <div class="lw-why-step-icon">05</div>
+        <div class="lw-why-step-icon"><svg width="32" height="32" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h3>Gated & Secured</h3>
         <p>CCTV, perimeter fencing & 24/7 security on all estates.</p>
       </div>
       <div class="lw-why-step-arrow"></div>
       <div class="lw-why-step">
-        <div class="lw-why-step-icon">06</div>
+        <div class="lw-why-step-icon"><svg width="32" height="32" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>2,500+ Families</h3>
         <p>Every project delivered on time since 2015.</p>
       </div>
@@ -409,9 +406,70 @@
             <p class="lw-dev-price-label">Starting From</p>
             <p class="lw-dev-price" id="propModalPrice"></p>
           </div>
-          <a href="tel:+2348157605221" class="lw-btn-primary">Book Inspection</a>
+          <button class="lw-btn-primary" onclick="openBookingModal()">Book Inspection</button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- BOOKING MODAL -->
+  <div class="booking-overlay" id="bookingModal">
+    <div class="booking-modal">
+      <button class="booking-close" id="bookingClose">&times;</button>
+      <div class="booking-header">
+        <svg width="22" height="22" fill="none" stroke="#3498DB" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <h3>Book a Site Inspection</h3>
+      </div>
+      <p class="booking-sub">Fill in your details and we'll confirm your visit within 24 hours.</p>
+      <form id="bookingForm" novalidate>
+        <div class="booking-row">
+          <div class="booking-group">
+            <label>Full Name</label>
+            <input type="text" id="bk-name" placeholder="Adebayo Okafor" required />
+            <span class="booking-error" id="bk-err-name"></span>
+          </div>
+          <div class="booking-group">
+            <label>Phone Number</label>
+            <input type="tel" id="bk-phone" placeholder="+234 800 000 0000" required />
+            <span class="booking-error" id="bk-err-phone"></span>
+          </div>
+        </div>
+        <div class="booking-group">
+          <label>Email Address</label>
+          <input type="email" id="bk-email" placeholder="you@example.com" required />
+          <span class="booking-error" id="bk-err-email"></span>
+        </div>
+        <div class="booking-group">
+          <label>Property</label>
+          <input type="text" id="bk-property" readonly />
+        </div>
+        <div class="booking-row">
+          <div class="booking-group">
+            <label>Preferred Date</label>
+            <input type="date" id="bk-date" required />
+            <span class="booking-error" id="bk-err-date"></span>
+          </div>
+          <div class="booking-group">
+            <label>Preferred Time</label>
+            <select id="bk-time">
+              <option value="9:00 AM">9:00 AM</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="1:00 PM">1:00 PM</option>
+              <option value="2:00 PM">2:00 PM</option>
+              <option value="3:00 PM">3:00 PM</option>
+              <option value="4:00 PM">4:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="booking-group">
+          <label>Additional Notes <span style="color:#aaa;font-weight:400">(optional)</span></label>
+          <textarea id="bk-notes" rows="3" placeholder="Any questions or special requests..."></textarea>
+        </div>
+        <button type="submit" class="booking-submit">Confirm Booking</button>
+        <p class="booking-success" id="bk-success">&#10003; Booking received! We'll contact you shortly to confirm.</p>
+      </form>
     </div>
   </div>
 
@@ -446,5 +504,74 @@
 <script src="./js/nav.js" defer></script>
 <script src="./js/scroll-animations.js" defer></script>
 <script src="./js/properties.js" defer></script>
+<script>
+  // Booking modal
+  document.getElementById('bk-date').min = new Date().toISOString().split('T')[0];
+
+  function openBookingModal() {
+    const title = document.getElementById('propModalTitle').textContent;
+    document.getElementById('bk-property').value = title;
+    document.getElementById('bk-success').style.display = 'none';
+    document.getElementById('bookingForm').reset();
+    document.getElementById('bk-property').value = title;
+    document.getElementById('bk-date').min = new Date().toISOString().split('T')[0];
+    document.getElementById('bookingModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.getElementById('bookingClose').addEventListener('click', () => {
+    document.getElementById('bookingModal').classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  document.getElementById('bookingModal').addEventListener('click', e => {
+    if (e.target === document.getElementById('bookingModal')) {
+      document.getElementById('bookingModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let valid = true;
+    const fields = [
+      { id: 'bk-name',  err: 'bk-err-name',  msg: 'Please enter your name.' },
+      { id: 'bk-phone', err: 'bk-err-phone', msg: 'Please enter your phone number.' },
+      { id: 'bk-email', err: 'bk-err-email', msg: 'Please enter a valid email.', pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
+      { id: 'bk-date',  err: 'bk-err-date',  msg: 'Please select a date.' }
+    ];
+    fields.forEach(f => {
+      const el = document.getElementById(f.id);
+      const errEl = document.getElementById(f.err);
+      const val = el.value.trim();
+      if (!val || (f.pattern && !f.pattern.test(val))) {
+        errEl.textContent = f.msg; el.classList.add('cf-invalid'); valid = false;
+      } else {
+        errEl.textContent = ''; el.classList.remove('cf-invalid');
+      }
+    });
+    if (!valid) return;
+    const btn = this.querySelector('.booking-submit');
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+      name:     document.getElementById('bk-name').value.trim(),
+      phone:    document.getElementById('bk-phone').value.trim(),
+      email:    document.getElementById('bk-email').value.trim(),
+      property: document.getElementById('bk-property').value,
+      date:     document.getElementById('bk-date').value,
+      time:     document.getElementById('bk-time').value,
+      notes:    document.getElementById('bk-notes').value.trim() || 'None'
+    }).then(() => {
+      document.getElementById('bk-success').style.display = 'block';
+      btn.textContent = 'Confirm Booking'; btn.disabled = false;
+    }).catch(() => {
+      alert('Failed to send. Please call us directly.');
+      btn.textContent = 'Confirm Booking'; btn.disabled = false;
+    });
+  });
+</script>
+<script>
+  document.body.style.zoom = "100%";
+</script>
 </body>
 </html>

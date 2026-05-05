@@ -63,6 +63,7 @@ class PropertyManager {
     card.setAttribute('data-tags', property.tags.join(','));
     card.setAttribute('data-desc', property.description);
     card.setAttribute('data-imgs', property.images.join(','));
+    if (property.pricingPlans) card.setAttribute('data-plans', JSON.stringify(property.pricingPlans));
 
     console.log('Creating card with image:', property.images[0]);
 
@@ -101,14 +102,29 @@ class PropertyManager {
     const description = card.getAttribute('data-desc');
     const tags = card.getAttribute('data-tags').split(',');
     const images = card.getAttribute('data-imgs').split(',');
+    const plans = card.getAttribute('data-plans');
 
     document.getElementById('propModalTitle').textContent = title;
     document.getElementById('propModalLocation').textContent = location;
     document.getElementById('propModalPrice').textContent = price;
-    document.getElementById('propModalDesc').textContent = description;
+    document.getElementById('propModalDesc').innerHTML = description;
 
     const tagsContainer = document.getElementById('propModalTags');
     tagsContainer.innerHTML = tags.map(tag => `<span>${tag.trim()}</span>`).join('');
+
+    const plansContainer = document.getElementById('propModalPlans');
+    if (plansContainer) {
+      if (plans) {
+        const rows = JSON.parse(plans).map(p =>
+          `<tr><td>${p.plotSize}</td><td>${p.price}</td><td>${p.initialDeposit}</td><td>${p.paymentPlan}</td></tr>`
+        ).join('');
+        plansContainer.innerHTML = `<table class="prop-plans-table"><thead><tr><th>Plot Size</th><th>Price</th><th>Initial Deposit</th><th>Payment Plan</th></tr></thead><tbody>${rows}</tbody></table>`;
+        plansContainer.style.display = 'block';
+      } else {
+        plansContainer.innerHTML = '';
+        plansContainer.style.display = 'none';
+      }
+    }
 
     this.currentImages = images;
     this.currentSlideIndex = 0;
@@ -232,4 +248,25 @@ document.addEventListener('DOMContentLoaded', () => {
 // Global function for filtering (called from HTML)
 function filterProperties() {
   propertyManager.filterProperties();
+  const hasFilter = document.getElementById('searchInput').value ||
+    document.getElementById('typeFilter').value ||
+    document.getElementById('priceFilter').value ||
+    document.getElementById('bedsFilter').value;
+  const clearBtn = document.getElementById('clearBtn');
+  if (clearBtn) clearBtn.style.display = hasFilter ? 'inline-flex' : 'none';
 }
+
+function clearFilters() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('typeFilter').value = '';
+  document.getElementById('priceFilter').value = '';
+  document.getElementById('bedsFilter').value = '';
+  const clearBtn = document.getElementById('clearBtn');
+  if (clearBtn) clearBtn.style.display = 'none';
+  propertyManager.filterProperties();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) searchInput.addEventListener('input', filterProperties);
+});

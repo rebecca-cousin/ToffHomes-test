@@ -1,18 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap');
 /* BRAND TOKENS */
 :root {
-  --primary:    #3498DB;
-  --deep:       #2980B9;
-  --sky:        #AEE1E1;
-  --black:      #000000;
-  --slate:      #7F8C8D;
-  --bg-light:   #f0f8ff;
+  --primary:    #4A90D9;
+  --deep:       #2C6FAC;
+  --sky:        #BFD9F2;
+  --black:      #0D1B2A;
+  --slate:      #5A7A99;
+  --bg-light:   #EBF4FC;
 }
 
 /* GLOBAL FONTS */
 body {
   font-family: 'Open Sans', sans-serif;
   color: var(--black);
+  width: 100%;
+  overflow-x: hidden;
+  padding-top: 58px;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -36,8 +46,10 @@ header {
   padding: 8px 60px;
   background: var(--bg-light);
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   transition: padding 0.3s, box-shadow 0.3s;
 }
@@ -606,11 +618,10 @@ nav a:hover {
 }
 
 .lw-why-step-icon {
-  font-size: 2.8rem;
-  font-weight: 900;
-  color: rgba(255,255,255,0.25);
-  line-height: 1;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
 }
 
 .lw-why-step h3 {

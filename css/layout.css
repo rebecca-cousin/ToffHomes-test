@@ -6,8 +6,10 @@ header {
   padding: 8px 60px;
   background: #f0f8ff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   transition: padding 0.3s, box-shadow 0.3s;
 }
@@ -206,112 +208,195 @@ nav a:hover {
   box-shadow: 0 16px 48px rgba(37,99,235,0.12);
 }
 
-/* MISSION / VISION / PROMISE */
-.ab-mv {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto 80px;
-  padding: 0 40px;
-}
-
-.ab-mv-card {
-  padding: 40px 32px;
-  background: #fff;
-  border-radius: 14px;
-  border-top: 3px solid #3498DB;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.ab-mv-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(37,99,235,0.1);
-}
-
-.ab-mv-icon {
-  font-size: 2rem;
-  margin-bottom: 18px;
-  display: inline-block;
-}
-
-.ab-mv-card h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #000000;
-  margin-bottom: 12px;
-}
-
-.ab-mv-card p {
-  font-size: 0.9rem;
-  color: #7F8C8D;
-  line-height: 1.8;
-}
-
-.ab-cv-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-
-.ab-cv-grid .ab-text-list,
-.ab-cv-grid .ab-offerings-list {
-  max-width: 100%;
-}
-
-@media (max-width: 768px) {
-  .ab-cv-grid { grid-template-columns: 1fr; gap: 40px; }
-}
-
-/* CORE VALUES TEXT LIST */
-.ab-text-list {
-  max-width: 800px;
-  margin: 0 auto;
+/* UNIFIED SECTION */
+.ab-unified {
   display: flex;
   flex-direction: column;
-  gap: 0;
+}
+
+/* TOP STRIP: Vision, Mission, Promise */
+.ab-vmp {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #EBF4FC;
+}
+
+.ab-vmp-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px 32px;
+  border-right: 1px solid rgba(74,144,217,0.15);
+  border-bottom: 8px solid #EBF4FC;
+  overflow: hidden;
+  transition: background 0.4s;
+  background: #fff;
+}
+
+.ab-vmp-item:last-child { border-right: none; }
+
+.ab-vmp-item::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #BFD9F2;
+  transition: width 0.4s ease;
+}
+
+.ab-vmp-item:hover::before { width: 100%; }
+
+.ab-vmp-item:hover {
+  background: #fff;
+}
+
+.ab-vmp-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 7rem;
+  font-weight: 900;
+  color: rgba(44,111,172,0.07);
+  line-height: 1;
+  position: absolute;
+  bottom: 12px;
+  right: 24px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ab-vmp-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0D1B2A;
+  position: relative;
+  z-index: 1;
+}
+
+.ab-vmp-tag::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: #4A90D9;
+  margin-top: 12px;
+  transition: width 0.3s ease;
+}
+
+.ab-vmp-item:hover .ab-vmp-tag::after { width: 56px; }
+
+.ab-vmp-item p {
+  font-size: 0.88rem;
+  color: #5A7A99;
+  line-height: 1.8;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s;
+}
+
+.ab-vmp-item:hover p { color: #0D1B2A; }
+
+@media (max-width: 768px) {
+  .ab-vmp { grid-template-columns: 1fr; }
+  .ab-vmp-item { border-right: none; border-bottom: 8px solid #EBF4FC; padding: 36px 24px; text-align: center; }
+  .ab-vmp-item:last-child { border-bottom: none; }
+  .ab-vmp-tag::after { margin: 12px auto 0; }
+}
+
+/* CORE VALUES & OFFERINGS */
+.ab-cv-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ab-cv-inner {
+  display: contents;
+}
+
+.ab-cv-col {
+  display: flex;
+  flex-direction: column;
+  padding: 64px 52px;
+}
+
+.ab-cv-col--left {
+  background: #fff;
+}
+
+.ab-cv-col--right {
+  background: #f4f6f9;
+}
+
+.ab-cv-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.ab-cv-col--left .ab-cv-heading { color: #333; }
+.ab-cv-col--right .ab-cv-heading { color: #333; }
+
+.ab-text-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ab-vmp-icon {
+  margin-bottom: 8px;
+}
+
+.ab-text-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .ab-text-item {
   display: flex;
-  align-items: baseline;
-  gap: 16px;
-  padding: 20px 0;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.ab-text-item:first-child {
-  border-top: 1px solid #e2e8f0;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  box-sizing: border-box;
 }
 
 .ab-text-label {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.82rem;
   color: var(--primary);
-  min-width: 220px;
-  flex-shrink: 0;
+  letter-spacing: 0.5px;
 }
 
 .ab-text-item p {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: var(--slate);
-  line-height: 1.7;
+  line-height: 1.6;
   margin: 0;
 }
 
-/* OFFERINGS LIST */
 .ab-offerings-list {
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
   padding-left: 0;
   list-style: none;
-  counter-reset: offerings;
   display: flex;
   flex-direction: column;
-  gap: 0;
+}
+
+.ab-off-num {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 0.75rem;
+  color: var(--primary);
+  flex-shrink: 0;
+  width: 28px;
 }
 
 .ab-offerings-list li {
@@ -320,31 +405,23 @@ nav a:hover {
   align-items: center;
   gap: 20px;
   padding: 18px 0;
-  border-bottom: 1px solid #e2e8f0;
-  font-size: 0.95rem;
-  color: var(--slate);
-  line-height: 1.6;
+  border-bottom: 1px solid rgba(74,144,217,0.15);
+  font-size: 0.88rem;
+  color: #5A7A99;
+  box-sizing: border-box;
+  transition: color 0.2s;
 }
 
-.ab-offerings-list li:first-child {
-  border-top: 1px solid #e2e8f0;
+.ab-offerings-list li:hover { color: #0D1B2A; }
+
+
+@media (max-width: 768px) {
+  .ab-cv-section { grid-template-columns: 1fr; }
+  .ab-cv-col { padding: 48px 24px; }
 }
 
-.ab-offerings-list li::before {
-  content: counter(offerings, decimal-leading-zero);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: var(--primary);
-  flex-shrink: 0;
-  min-width: 32px;
-}
-
-@media (max-width: 600px) {
-  .ab-text-label { min-width: 140px; font-size: 0.82rem; }
-  .ab-text-item { gap: 12px; }
-}
-
+/* CORE VALUES */
+.ab-values {
   background: #f8fafc;
   padding: 80px 40px;
 }

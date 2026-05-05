@@ -1,55 +1,165 @@
 [
   {
     "id": 1,
+    "title": "Eiyatayo Estate",
+    "location": "Ajiboro, Ido, Ibadan, Oyo State",
+    "price": "₦2,000,000",
+    "documentation": "Certificate Of Occupancy",
+    "tags": ["Perimeter Fencing", "Paved Road", "Gate House", "24/7 Security", "Waste Management", "Street Light", "Landscaping"],
+    "description": "Nestled in the peaceful heart of Ajiboro, Ido Local Government, Ibadan, Eiyatayo Estate is a premium land investment opportunity designed for those who seek tranquility without compromising on growth potential. Located far from the noise and congestion of the city, this estate offers an escape into nature while remaining strategically positioned for future development. With its lush green environment and serene atmosphere, it is ideal for homeowners and investors seeking land in a rapidly appreciating location.<br><br><strong>Nearby Landmarks:</strong><ul style='margin:6px 0 0 18px;line-height:2'><li>Ido Market</li><li>Omi-Adio Ibadan Train Station</li><li>Ido Local Government Secretariat</li><li>Ologuneru</li><li>Ibadan City Polytechnic</li></ul>",
+    "images": [
+      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80"
+    ],
+    "category": "ibadan",
+    "priceValue": 2000000,
+    "featured": true,
+    "pricingPlans": [
+      { "plotSize": "300 SQM", "price": "₦2,000,000", "initialDeposit": "₦500,000", "paymentPlan": "3–6 Months" },
+      { "plotSize": "500 SQM", "price": "₦4,000,000", "initialDeposit": "₦500,000", "paymentPlan": "3–6 Months" }
+    ]
+  },
+
+  {
+    "id": 2,
+    "title": "Eyiitayo Bungalow",
+    "location": "Ajiboro, Ido, Ibadan, Oyo State",
+    "price": "₦23,000,000",
+    "documentation": "Certificate Of Occupancy",
+    "tags": ["Perimeter Fencing", "Paved Road", "Gate House", "24/7 Security", "Waste Management", "Street Light", "Landscaping", "Property Management"],
+    "description": "Located within the serene Eyiitayo Estate in Ajiboro, Ido Local Government, Ibadan, Eyiitayo Bungalow offers well-designed 2-bedroom and 3-bedroom apartments, perfect for homeowners and investors seeking comfort and long-term value. As an investor, you don't have to worry about managing your apartment — we offer professional property management services, ensuring your investment remains profitable while you enjoy peace of mind.<br><br>Beyond just a home, investing in Eyiitayo Bungalow presents a unique opportunity for rental income. With Eyiitayo City, an upcoming landmark development by Toff Homes featuring a water park, resort, and other commercial projects, property owners will benefit from increased demand for short- and long-term rentals. Secure your space today and position yourself for high returns in a thriving destination.<br><br><strong>Nearby Landmarks:</strong><ul style='margin:6px 0 0 18px;line-height:2'><li>Ido Market</li><li>Omi-Adio Ibadan Train Station</li><li>Ido Local Government Secretariat</li><li>Ologuneru</li><li>Ibadan City Polytechnic</li></ul>",
+    "images": [
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80",
+      "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&q=80"
+    ],
+    "category": "ibadan",
+    "priceValue": 23000000,
+    "featured": true,
+    "pricingPlans": [
+      { "plotSize": "2 Bedroom", "price": "₦23,000,000", "initialDeposit": "₦5,000,000", "paymentPlan": "3–6 Months" },
+      { "plotSize": "3 Bedroom", "price": "₦30,000,000", "initialDeposit": "₦5,000,000", "paymentPlan": "3–6 Months" }
+    ]
+  },
+
+  {
+    "id": 3,
+    "title": "Cherry Hills Homes & Apartments",
+    "location": "Vista Estate, Ajah, Lagos",
+    "price": "₦130,000,000",
+    "documentation": "Certificate Of Occupancy",
+    "tags": ["Modern Architecture", "Spacious Rooms", "Top-Notch Finishing", "Gated Estate", "24/7 Security", "Property Management"],
+    "description": "Located in the thriving heart of Ajah, Lagos, Cherry Hills Homes & Apartments offers 8 units of 4-bedroom terrace duplexes, designed for investors seeking steady rental income and long-term property appreciation. With Lagos' real estate market booming, now is the time to own a high-yield property in Cherry Hills Homes.<br><br><strong>Why Invest?</strong><ul style='margin:6px 0 12px 18px;line-height:2'><li>Lagos has a 98.5% rental occupancy rate, ensuring consistent returns.</li><li>Ajah attracts professionals, expatriates, and families — a prime rental hotspot.</li><li>Festive periods drive up short-term rental earnings.</li><li>We offer property management services to maximise your returns hassle-free.</li></ul><strong>Nearby Landmarks:</strong><ul style='margin:6px 0 0 18px;line-height:2'><li>Ajah Shopping Complex</li><li>Blenco Supermarket</li><li>Lekki Conservation Center</li><li>Olumegbo Palace</li></ul>",
+    "images": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
+    ],
+    "category": "lagos",
+    "priceValue": 130000000,
+    "featured": true,
+    "pricingPlans": [
+      { "plotSize": "4 Bedroom (Outright)", "price": "₦130,000,000", "initialDeposit": "₦30,000,000", "paymentPlan": "Outright" },
+      { "plotSize": "4 Bedroom (Payment Plan)", "price": "₦150,000,000", "initialDeposit": "₦30,000,000", "paymentPlan": "3–12 Months" }
+    ]
+  },
+
+  {
+    "id": 4,
     "title": "Toff Residence",
-    "location": "Ibonwon-Eredo, Epe, Lagos",
-    "price": "₦5,000,000",
-    "documentation": "Government Excision",
-    "tags": ["Electricity 24/7", "Clean Water", "CCTV 24/7", "Security", "Drainage", "Sewage System", "Swimming Pool", "Paved Road", "Perimeter Fencing"],
-    "description": "Gated estate with government excision title. Serene waterfront community minutes from the Lekki-Epe Expressway. Features beautifully landscaped surroundings, a community clubhouse, and direct waterfront access.",
+    "location": "Itamarun, Ibeju-Lekki, Lagos",
+    "price": "₦2,000,000",
+    "documentation": "Registered Survey",
+    "tags": ["Paved Road", "Perimeter Fencing", "Gate House", "24/7 Security", "Waste Management", "Street Light", "Landscaping"],
+    "description": "Strategically located in the heart of Ibeju-Lekki, Toff Residence offers a prime opportunity to own a home in the rapidly developing business hub of Ibeju-Lekki. Attracting local and international investors, Ibeju-Lekki is home to major developments like the Lekki Free Trade Zone, Dangote Refinery, Deep Seaport, and International Airport. Owning a home here is not just about luxury — it's about securing a future of financial growth.<br><br>Toff Residence is perfect for smart investors who understand the value of generational wealth. As the population and economic activities in Ibeju-Lekki continue to rise, property values will appreciate exponentially, ensuring your investment today turns into a legacy for the future. Don't wait until prices soar beyond reach — invest in Toff Residence now and be part of the future of Lagos.<br><br><strong>Nearby Landmarks:</strong><ul style='margin:6px 0 0 18px;line-height:2'><li>Dangote Refinery</li><li>Lekki Free Trade Zone</li><li>Lekki Deep Sea Port</li><li>Lekki International Airport</li><li>La Campagne Tropicana Beach</li><li>Pan-Atlantic University</li></ul>",
     "images": [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
     ],
     "category": "lagos",
-    "priceValue": 5000000,
-    "featured": false
+    "priceValue": 2000000,
+    "featured": false,
+    "pricingPlans": [
+      { "plotSize": "300 SQM", "price": "₦2,000,000", "initialDeposit": "₦500,000", "paymentPlan": "3–6 Months" },
+      { "plotSize": "500 SQM", "price": "₦4,000,000", "initialDeposit": "₦500,000", "paymentPlan": "3–6 Months" }
+    ]
   },
 
   {
-    "id": 2,
-    "title": "Eyitayo Estate",
-    "location": "Ido, Ibadan, Oyo State",
-    "price": "₦8,000,000",
-    "documentation": "Certificate Of Occupancy",
-    "tags": ["Electricity 24/7", "Clean Water", "CCTV 24/7", "Security", "Drainage", "Sewage System", "Swimming Pool", "Paved Road", "Perimeter Fencing"],
-    "description": "Certificate of Occupancy estate in the heart of Ibadan's fastest-growing corridor. Fully serviced plots with underground drainage, street lighting, and a dedicated residents' association.",
+    "id": 5,
+    "title": "Toff Green Estate 1&2",
+    "location": "Igbo-Nla, Epe, Lagos",
+    "price": "₦3,000,000",
+    "documentation": "Government Excision",
+    "tags": ["Perimeter Fencing", "Paved Road", "Gate House", "24/7 Security", "Waste Management", "Street Light", "Landscaping", "Agricultural Initiative"],
+    "description": "Located in the rapidly developing Igbo-Nla, Epe, Toff Green Estate Phase 1 & 2 is more than just a real estate investment — it's a wealth-building opportunity designed for forward-thinking investors. With Toff Green Estate, your land doesn't just sit idle. It works for you. Whether you choose to bank the land, farm it, or develop it in the future, you're making an investment that guarantees long-term wealth.<br><br><strong>Why Toff Green Estate?</strong><br>Toff Green Estate combines traditional land banking with an agricultural initiative, allowing investors to generate steady income while their land appreciates in value.<br><br><strong>How It Works:</strong><ul style='margin:6px 0 12px 18px;line-height:2'><li>Epe is becoming a major urban hub with skyrocketing land values.</li><li>Subscribers can farm on their plots for steady cash flow.</li><li>Managed agricultural services provide passive income for investors.</li></ul>Epe's rapid growth and major developments make it a profitable investment for high ROI seekers, retirement planners, families, and smart entrepreneurs.<br><br><strong>Nearby Landmarks:</strong><ul style='margin:6px 0 0 18px;line-height:2'><li>Yaba College of Technology (Epe)</li><li>Augustine University</li><li>Epe Resort and Spa</li><li>Epe Fish Market</li><li>Lagos State University of Education</li><li>Proximity to Lekki International Airport</li></ul>",
     "images": [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
-      "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80"
+    ],
+    "category": "lagos",
+    "priceValue": 3000000,
+    "featured": false,
+    "pricingPlans": [
+      { "plotSize": "300 SQM", "price": "₦3,000,000", "initialDeposit": "₦600,000", "paymentPlan": "3–6 Months" },
+      { "plotSize": "500 SQM", "price": "₦5,000,000", "initialDeposit": "₦1,000,000", "paymentPlan": "3–6 Months" }
+    ]
+  },
+
+  {
+    "id": 6,
+    "title": "Eyitayo City",
+    "location": "Ido Local Government, Ibadan, Oyo State",
+    "price": "Contact Us",
+    "documentation": "Certificate Of Occupancy",
+    "tags": ["Water Park", "Luxury Resort", "Event Hosting", "Dining & Retail", "High ROI", "Job Creation"],
+    "description": "Eyitayo City, located in Ido Local Government, Ibadan, Oyo State, is an upcoming water park and resort set to redefine leisure and investment in the region. This world-class recreational hub aims to attract local and international visitors, boosting the economy.<br><br><strong>Key Features:</strong><ul style='margin:6px 0 12px 18px;line-height:2'><li>Thrilling slides, wave pools, and family-friendly attractions.</li><li>Luxury Resort: Serene getaways, exquisite accommodations, and top-tier hospitality.</li><li>Event hosting, dining, and retail experiences.</li></ul><strong>Investment Benefits:</strong><br>High ROI, increased demand, and job creation boost economic growth and business expansion in Ido Local Government. Eyitayo City promises to transform Ibadan's hospitality and entertainment industry, making it a prime investment opportunity. Be part of the future — invest in Eyitayo City today!",
+    "images": [
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80",
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80"
     ],
     "category": "ibadan",
-    "priceValue": 8000000,
+    "priceValue": 0,
     "featured": true
   },
 
   {
-    "id": 3,
-    "title": "Toff Estate Moniya",
+    "id": 7,
+    "title": "Eyitayo Residence",
     "location": "Moniya, Ibadan, Oyo State",
-    "price": "₦6,500,000",
+    "price": "Contact Us",
     "documentation": "Certificate Of Occupancy",
-    "tags": ["Electricity 24/7", "Clean Water", "CCTV 24/7", "Security", "Drainage", "Sewage System", "Swimming Pool", "Paved Road", "Perimeter Fencing"],
-    "description": "Strategically located along the Ibadan-Lagos expressway with C of O title and full infrastructure already in place. Proximity to the new Ibadan airport and major commercial hubs.",
+    "tags": ["Perimeter Fencing", "Paved Road", "Gate House", "24/7 Security", "Street Light", "Landscaping", "Railway Access"],
+    "description": "Located in Moniya, Ibadan, just a few kilometres from the Lagos-Ibadan railway station, Eyitayo Residence offers the perfect blend of affordability, convenience, and smart investment. Designed for professionals working in Lagos and families seeking a peaceful yet connected lifestyle, this estate provides a unique opportunity to own secure and well-titled land at a fraction of Lagos real estate prices.<br><br>Eyitayo Residence offers a smart alternative for those priced out of Lagos, with quality land, convenient transportation, and a promising return on investment — ideal for both homeowners and investors. Secure your plot today to experience affordable living in Ibadan while staying connected to Lagos!",
     "images": [
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-      "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80"
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80"
     ],
     "category": "ibadan",
-    "priceValue": 6500000,
+    "priceValue": 0,
     "featured": false
+  },
+
+  {
+    "id": 8,
+    "title": "Toff Court Apartments",
+    "location": "Monastery Road, Sangotedo, Ajah, Lagos",
+    "price": "Contact Us",
+    "documentation": "Certificate Of Occupancy",
+    "tags": ["2 & 3 Bedroom Units", "54 Units", "Proximity to Beach", "Gated Estate", "24/7 Security", "Property Management", "High Appreciation"],
+    "description": "Toff Court Apartments, located in the highly sought-after Monastery Road, Sangotedo, Ajah, is a premium residential development designed for comfort, convenience, and high returns on investment. This 54-unit block of 2 and 3-bedroom apartments is just a few minutes' drive from the beach, offering residents a unique blend of urban living and coastal serenity.<br><br>Toff Court Apartments offers a prime location surrounded by top developments, proximity to the beach for a luxurious lifestyle, high property appreciation, and ideal options for both living and rental income due to consistent demand.<br><br>At Toff Court Apartments, you're not just buying a home — you're investing in a modern, well-connected, and high-value property in one of Lagos' most promising locations. Secure your unit today and enjoy the best of city living with a touch of coastal luxury!",
+    "images": [
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+      "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&q=80",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80"
+    ],
+    "category": "lagos",
+    "priceValue": 0,
+    "featured": true
   }
 ]
