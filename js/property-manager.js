@@ -9,48 +9,32 @@ class PropertyManager {
 
   async loadProperties() {
     try {
-      console.log('Loading properties from:', '../data/properties.json');
       const response = await fetch('../data/properties.json');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       this.properties = await response.json();
-      console.log('Properties loaded:', this.properties);
+      const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      if (isLocalhost) {
+        this.properties = this.properties.map(p => ({
+          ...p,
+          images: p.images.map(img => img.startsWith('/img/') ? '/real-estate' + img : img)
+        }));
+      }
       this.filteredProperties = [...this.properties];
       this.renderProperties();
       this.updateResultsCount();
     } catch (error) {
       console.error('Error loading properties:', error);
-      this.showFallbackProperties();
-    }
-  }
-
-  showFallbackProperties() {
-    // Fallback to existing hardcoded properties if JSON fails to load
-    const existingCards = document.querySelectorAll('.community-card');
-    if (existingCards.length > 0) {
-      console.log('Using existing hardcoded properties as fallback');
-      return;
     }
   }
 
   renderProperties() {
     const container = document.querySelector('.community-grid');
-    console.log('Container found:', container);
-    if (!container) {
-      console.error('Community grid container not found!');
-      return;
-    }
-
+    if (!container) return;
     container.innerHTML = '';
-    console.log('Rendering', this.filteredProperties.length, 'properties');
-
     this.filteredProperties.forEach(property => {
-      console.log('Creating card for:', property.title, 'with images:', property.images);
       const card = this.createPropertyCard(property);
       container.appendChild(card);
     });
-
     this.attachEventListeners();
   }
 
@@ -64,12 +48,11 @@ class PropertyManager {
     card.setAttribute('data-desc', property.description);
     card.setAttribute('data-imgs', property.images.join(','));
     if (property.pricingPlans) card.setAttribute('data-plans', JSON.stringify(property.pricingPlans));
-
-    console.log('Creating card with image:', property.images[0]);
+    if (property.pricingPlans2) card.setAttribute('data-plans2', JSON.stringify(property.pricingPlans2));
 
     card.innerHTML = `
       ${property.featured ? '<div class="lw-dev-badge">FEATURED</div>' : ''}
-      <img src="${property.images[0]}" alt="${property.title}" onerror="console.error('Image failed to load:', this.src)" onload="console.log('Image loaded successfully:', this.src)" />
+      <img src="${property.images[0]}" alt="${property.title}" />
       <div class="community-body">
         <h3>${property.title}</h3>
         <p>Location: ${property.location}</p>
@@ -112,13 +95,20 @@ class PropertyManager {
     const tagsContainer = document.getElementById('propModalTags');
     tagsContainer.innerHTML = tags.map(tag => `<span>${tag.trim()}</span>`).join('');
 
+    const plans2 = card.getAttribute('data-plans2');
     const plansContainer = document.getElementById('propModalPlans');
     if (plansContainer) {
       if (plans) {
-        const rows = JSON.parse(plans).map(p =>
-          `<tr><td>${p.plotSize}</td><td>${p.price}</td><td>${p.initialDeposit}</td><td>${p.paymentPlan}</td></tr>`
-        ).join('');
-        plansContainer.innerHTML = `<table class="prop-plans-table"><thead><tr><th>Plot Size</th><th>Price</th><th>Initial Deposit</th><th>Payment Plan</th></tr></thead><tbody>${rows}</tbody></table>`;
+        const buildTable = (data) => {
+          const rows = JSON.parse(data).map(p =>
+            `<tr><td>${p.plotSize}</td><td>${p.price}</td><td>${p.initialDeposit}</td><td>${p.paymentPlan}</td></tr>`
+          ).join('');
+          return `<table class="prop-plans-table"><thead><tr><th>Plot Size</th><th>Price</th><th>Initial Deposit</th><th>Payment Plan</th></tr></thead><tbody>${rows}</tbody></table>`;
+        };
+        let html = plans2
+          ? `<p class="prop-plans-label">Phase 1</p>${buildTable(plans)}<p class="prop-plans-label" style="margin-top:14px">Phase 2</p>${buildTable(plans2)}`
+          : buildTable(plans);
+        plansContainer.innerHTML = html;
         plansContainer.style.display = 'block';
       } else {
         plansContainer.innerHTML = '';
@@ -243,6 +233,17 @@ const propertyManager = new PropertyManager();
 document.addEventListener('DOMContentLoaded', () => {
   propertyManager.loadProperties();
   propertyManager.initializeModalControls();
+
+  // Auto-filter if search query in URL
+  const params = new URLSearchParams(window.location.search);
+  const search = params.get('search');
+  if (search) {
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+      searchInput.value = search;
+      setTimeout(() => filterProperties(), 500);
+    }
+  }
 });
 
 // Global function for filtering (called from HTML)

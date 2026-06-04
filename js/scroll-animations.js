@@ -70,11 +70,8 @@ addAnim('.lw-step', ANIM_CLASSES.slideUp, 110);
 // Testimonial cards — fade with stagger
 addAnim('.lw-testi-card', ANIM_CLASSES.fade, 120);
 
-// Why-invest cards (invest page)
-addAnim('.lw-why-card', ANIM_CLASSES.slideUp, 90);
-
 // About page cards
-addAnim('.ab-mv-card, .ab-val-card', ANIM_CLASSES.scaleIn, 100);
+addAnim('.ab-val-card', ANIM_CLASSES.scaleIn, 100);
 addAnim('.ab-team-card', ANIM_CLASSES.slideUp, 100);
 addAnim('.ab-intro-text', ANIM_CLASSES.slideLeft);
 addAnim('.ab-intro-img', ANIM_CLASSES.slideRight);
