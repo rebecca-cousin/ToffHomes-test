@@ -17,5 +17,21 @@ hamburger.addEventListener('click', () => {
 backdrop.addEventListener('click', closeMenu);
 
 nav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', closeMenu);
+  link.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      closeMenu();
+      const target = document.querySelector(href);
+      if (target) {
+        setTimeout(() => {
+          const offset = document.querySelector('header').offsetHeight;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }, 300);
+      }
+    } else {
+      closeMenu();
+    }
+  });
 });

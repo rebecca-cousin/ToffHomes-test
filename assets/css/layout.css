@@ -2,8 +2,8 @@
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 8px 60px;
+  align-items: stretch;
+  padding: 0 60px 0 0;
   background: #f0f8ff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   position: fixed;
@@ -11,11 +11,11 @@ header {
   left: 0;
   right: 0;
   z-index: 100;
-  transition: padding 0.3s, box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  min-height: 56px;
 }
 
 header.header-scrolled {
-  padding: 4px 60px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.12);
 }
 
@@ -24,13 +24,17 @@ header.header-scrolled {
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  order: 1;
+  margin-right: auto;
+  padding: 0 10px 0 0;
 }
 
 .brand-logo {
-  width: 38px;
-  height: 38px;
-  border-radius: 6px;
+  width: auto;
+  height: 56px;
+  border-radius: 0;
   object-fit: cover;
+  display: block;
 }
 
 .logo {
@@ -43,6 +47,7 @@ header.header-scrolled {
 nav {
   display: flex;
   align-items: center;
+  order: 2;
 }
 
 nav a {
@@ -63,6 +68,7 @@ nav a:hover {
   display: none;
   flex-direction: column;
   cursor: pointer;
+  order: 3;
   padding: 8px;
   border-radius: 4px;
   transition: background 0.2s;
@@ -98,6 +104,15 @@ nav a:hover {
 @media (max-width: 768px) {
   nav {
     display: none;
+  }
+
+  header {
+    padding: 0 8px 0 0;
+    min-height: 52px;
+  }
+
+  .brand-logo {
+    height: 52px;
   }
 
   nav.nav-open {

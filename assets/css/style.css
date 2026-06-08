@@ -487,8 +487,8 @@ footer {
 
 .community-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .community-card {
@@ -508,8 +508,9 @@ footer {
 
 .community-card img {
   width: 100%;
-  height: 150px;
+  height: 220px;
   object-fit: cover;
+  display: block;
 }
 
 .community-body {
@@ -753,14 +754,7 @@ footer {
   line-height: 1;
 }
 
-.prop-modal-img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 14px 14px 0 0;
-  display: block;
-  flex-shrink: 0;
-}
+.prop-modal-img {`n  width: 100%;`n  height: auto;`n  max-height: 380px;`n  object-fit: contain;`n  background: #000;`n  border-radius: 14px 14px 0 0;`n  display: block;`n  flex-shrink: 0;`n}
 
 .prop-modal-slideshow { position: relative; }
 
@@ -1086,3 +1080,54 @@ footer {
   color: #0D1B2A;
   margin-bottom: 8px;
 }
+
+/* SKELETON LOADER */
+.lw-skeleton { pointer-events: none; cursor: default; }
+.sk-img {
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+.sk-body { padding: 22px; }
+.sk-line {
+  height: 14px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+.sk-line--title { height: 20px; width: 70%; }
+.sk-line--short { width: 40%; }
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* BACK TO TOP */
+.back-to-top {
+  position: fixed;
+  bottom: 100px;
+  right: 28px;
+  width: 42px;
+  height: 42px;
+  background: #2C6FAC;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top:hover { transform: translateY(-3px); }
+

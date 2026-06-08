@@ -1,14 +1,30 @@
-// Load first 3 properties from JSON into home page carousel
+function sanitize(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function sanitizeInput(str) {
+  return str.replace(/[<>"'&]/g, c => ({ '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#x27;', '&': '&amp;' }[c]));
+}
 async function loadHomeProperties() {
   const carousel = document.getElementById('propCarousel');
   if (!carousel) return;
   try {
+    // Show skeletons while fetching
+    carousel.innerHTML = '';
+    for (let i = 0; i < 3; i++) {
+      const sk = document.createElement('div');
+      sk.className = 'lw-dev-card lw-skeleton';
+      sk.innerHTML = '<div class="sk-img"></div><div class="sk-body"><div class="sk-line sk-line--title"></div><div class="sk-line"></div><div class="sk-line sk-line--short"></div></div>';
+      carousel.appendChild(sk);
+    }
     const response = await fetch('./data/properties.json');
     const rawProperties = await response.json();
     const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const properties = rawProperties.map(p => ({
       ...p,
-      images: p.images.map(img => isLocalhost && img.startsWith('/img/') ? '/real-estate' + img : img)
+      images: p.images.map(img => isLocalhost && img.startsWith('/assets/img/') ? '/real-estate' + img : img)
     }));
     const first3 = properties.slice(0, 3);
     carousel.innerHTML = '';
@@ -23,20 +39,66 @@ async function loadHomeProperties() {
       card.dataset.imgs = p.images.join(',');
       if (p.pricingPlans) card.dataset.plans = JSON.stringify(p.pricingPlans);
       if (p.pricingPlans2) card.dataset.plans2 = JSON.stringify(p.pricingPlans2);
-      card.innerHTML = `
-        <img src="${p.images[0]}" alt="${p.title}" />
-        ${p.featured ? '<div class="lw-dev-badge">FEATURED</div>' : ''}
-        <div class="lw-dev-body">
-          <p class="lw-dev-location">&#128205; ${p.location}</p>
-          <h3>${p.title}</h3>
-          <p class="lw-dev-desc">${p.description.replace(/<[^>]*>/g, '').substring(0, 120)}...</p>
-          <div class="lw-dev-tags">${p.tags.slice(0, 4).map(t => `<span>${t}</span>`).join('')}</div>
-          <div class="lw-dev-price-row">
-            <div><p class="lw-dev-price-label">Starting From</p><p class="lw-dev-price">${p.price}</p></div>
-          </div>
-        </div>
-        <button class="lw-btn-outline">View Details</button>
-      `;
+
+      const img = document.createElement('img');
+      img.src = p.images[0];
+      img.alt = p.title;
+      img.loading = 'lazy';
+      card.appendChild(img);
+
+      if (p.featured) {
+        const badge = document.createElement('div');
+        badge.className = 'lw-dev-badge';
+        badge.textContent = 'FEATURED';
+        card.appendChild(badge);
+      }
+
+      const body = document.createElement('div');
+      body.className = 'lw-dev-body';
+
+      const loc = document.createElement('p');
+      loc.className = 'lw-dev-location';
+      loc.textContent = '📍 ' + p.location;
+      body.appendChild(loc);
+
+      const title = document.createElement('h3');
+      title.textContent = p.title;
+      body.appendChild(title);
+
+      const desc = document.createElement('p');
+      desc.className = 'lw-dev-desc';
+      desc.textContent = p.description.replace(/<[^>]*>/g, '').substring(0, 120) + '...';
+      body.appendChild(desc);
+
+      const tags = document.createElement('div');
+      tags.className = 'lw-dev-tags';
+      p.tags.slice(0, 4).forEach(t => {
+        const span = document.createElement('span');
+        span.textContent = t;
+        tags.appendChild(span);
+      });
+      body.appendChild(tags);
+
+      const priceRow = document.createElement('div');
+      priceRow.className = 'lw-dev-price-row';
+      const priceDiv = document.createElement('div');
+      const priceLabel = document.createElement('p');
+      priceLabel.className = 'lw-dev-price-label';
+      priceLabel.textContent = 'Starting From';
+      const priceVal = document.createElement('p');
+      priceVal.className = 'lw-dev-price';
+      priceVal.textContent = p.price;
+      priceDiv.appendChild(priceLabel);
+      priceDiv.appendChild(priceVal);
+      priceRow.appendChild(priceDiv);
+      body.appendChild(priceRow);
+      card.appendChild(body);
+
+      const btn = document.createElement('button');
+      btn.className = 'lw-btn-outline';
+      btn.textContent = 'View Details';
+      card.appendChild(btn);
+
       card.addEventListener('click', e => {
         if (e.target.closest('.lw-card-btn') || !e.target.closest('.lw-dev-card')) return;
         openModal(card);
@@ -85,9 +147,15 @@ function openModal(card) {
   modalImg.alt = card.dataset.title;
   document.getElementById('propModalTitle').textContent = card.dataset.title;
   document.getElementById('propModalLocation').textContent = '📍 ' + card.dataset.location;
-  document.getElementById('propModalDesc').innerHTML = card.dataset.desc;
+  document.getElementById('propModalDesc').textContent = card.dataset.desc;
   document.getElementById('propModalPrice').textContent = card.dataset.price;
-  document.getElementById('propModalTags').innerHTML = card.dataset.tags.split(',').map(t => `<span>${t.trim()}</span>`).join('');
+  document.getElementById('propModalTags').innerHTML = '';
+  const tagsContainer = document.getElementById('propModalTags');
+  card.dataset.tags.split(',').forEach(t => {
+    const span = document.createElement('span');
+    span.textContent = t.trim();
+    tagsContainer.appendChild(span);
+  });
 
   const plansContainer = document.getElementById('propModalPlans');
   if (plansContainer) {
@@ -96,7 +164,7 @@ function openModal(card) {
     if (plans) {
       const buildTable = (data) => {
         const rows = JSON.parse(data).map(p =>
-          `<tr><td>${p.plotSize}</td><td>${p.price}</td><td>${p.initialDeposit}</td><td>${p.paymentPlan}</td></tr>`
+          `<tr><td>${sanitize(String(p.plotSize))}</td><td>${sanitize(String(p.price))}</td><td>${sanitize(String(p.initialDeposit))}</td><td>${sanitize(String(p.paymentPlan))}</td></tr>`
         ).join('');
         return `<table class="prop-plans-table"><thead><tr><th>Plot Size</th><th>Price</th><th>Initial Deposit</th><th>Payment Plan</th></tr></thead><tbody>${rows}</tbody></table>`;
       };
@@ -158,11 +226,14 @@ const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
+    // Honeypot check
+    if (this.querySelector('input[name="website"]') && this.querySelector('input[name="website"]').value) return;
     let valid = true;
+    const phoneRegex = /^[\+]?[0-9\s\-\(\)]{7,20}$/;
     const fields = [
       { id: 'cf-name',    err: 'err-name',    msg: 'Please enter your full name.' },
       { id: 'cf-email',   err: 'err-email',   msg: 'Please enter a valid email.',  pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
-      { id: 'cf-phone',   err: 'err-phone',   msg: 'Please enter your phone number.' },
+      { id: 'cf-phone',   err: 'err-phone',   msg: 'Please enter a valid phone number.', pattern: phoneRegex },
       { id: 'cf-message', err: 'err-message', msg: 'Please enter a message.' }
     ];
     fields.forEach(f => {

@@ -114,3 +114,14 @@ if (header) {
     header.classList.toggle('header-scrolled', window.scrollY > 40);
   }, { passive: true });
 }
+
+// ── Back to top button ─────────────────────────────────────────
+const btn = document.createElement('button');
+btn.className = 'back-to-top';
+btn.setAttribute('aria-label', 'Back to top');
+btn.innerHTML = '&#8679;';
+document.body.appendChild(btn);
+btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+window.addEventListener('scroll', () => {
+  btn.classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });

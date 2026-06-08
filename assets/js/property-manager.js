@@ -1,4 +1,10 @@
 // Dynamic Property Loader
+function sanitize(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
 class PropertyManager {
   constructor() {
     this.properties = [];
@@ -16,7 +22,7 @@ class PropertyManager {
       if (isLocalhost) {
         this.properties = this.properties.map(p => ({
           ...p,
-          images: p.images.map(img => img.startsWith('/img/') ? '/real-estate' + img : img)
+          images: p.images.map(img => img.startsWith('/assets/img/') ? '/real-estate' + img : img)
         }));
       }
       this.filteredProperties = [...this.properties];
@@ -41,29 +47,59 @@ class PropertyManager {
   createPropertyCard(property) {
     const card = document.createElement('div');
     card.className = 'community-card';
-    card.setAttribute('data-title', property.title);
-    card.setAttribute('data-location', property.location);
-    card.setAttribute('data-price', property.price);
-    card.setAttribute('data-tags', property.tags.join(','));
-    card.setAttribute('data-desc', property.description);
-    card.setAttribute('data-imgs', property.images.join(','));
+    card.setAttribute('data-title', sanitize(property.title));
+    card.setAttribute('data-location', sanitize(property.location));
+    card.setAttribute('data-price', sanitize(property.price));
+    card.setAttribute('data-tags', property.tags.map(t => sanitize(t)).join(','));
+    card.setAttribute('data-desc', sanitize(property.description));
+    card.setAttribute('data-imgs', property.images.map(i => sanitize(i)).join(','));
     if (property.pricingPlans) card.setAttribute('data-plans', JSON.stringify(property.pricingPlans));
     if (property.pricingPlans2) card.setAttribute('data-plans2', JSON.stringify(property.pricingPlans2));
 
-    card.innerHTML = `
-      ${property.featured ? '<div class="lw-dev-badge">FEATURED</div>' : ''}
-      <img src="${property.images[0]}" alt="${property.title}" />
-      <div class="community-body">
-        <h3>${property.title}</h3>
-        <p>Location: ${property.location}</p>
-        <p>${property.documentation}</p>
-        <div class="features">
-          ${property.tags.map(tag => `<span>${tag}</span>`).join('')}
-        </div>
-        <a href="javascript:void(0)" class="btn-view">View Details</a>
-      </div>
-    `;
+    if (property.featured) {
+      const badge = document.createElement('div');
+      badge.className = 'lw-dev-badge';
+      badge.textContent = 'FEATURED';
+      card.appendChild(badge);
+    }
 
+    const img = document.createElement('img');
+    img.src = sanitize(property.images[0]);
+    img.alt = sanitize(property.title);
+    img.loading = 'lazy';
+    card.appendChild(img);
+
+    const body = document.createElement('div');
+    body.className = 'community-body';
+
+    const title = document.createElement('h3');
+    title.textContent = property.title;
+    body.appendChild(title);
+
+    const loc = document.createElement('p');
+    loc.textContent = 'Location: ' + property.location;
+    body.appendChild(loc);
+
+    const doc = document.createElement('p');
+    doc.textContent = property.documentation;
+    body.appendChild(doc);
+
+    const features = document.createElement('div');
+    features.className = 'features';
+    property.tags.forEach(tag => {
+      const span = document.createElement('span');
+      span.textContent = tag;
+      features.appendChild(span);
+    });
+    body.appendChild(features);
+
+    const btn = document.createElement('a');
+    btn.href = 'javascript:void(0)';
+    btn.className = 'btn-view';
+    btn.textContent = 'View Details';
+    body.appendChild(btn);
+
+    card.appendChild(body);
     return card;
   }
 
@@ -90,10 +126,10 @@ class PropertyManager {
     document.getElementById('propModalTitle').textContent = title;
     document.getElementById('propModalLocation').textContent = location;
     document.getElementById('propModalPrice').textContent = price;
-    document.getElementById('propModalDesc').innerHTML = description;
+    document.getElementById('propModalDesc').textContent = description;
 
     const tagsContainer = document.getElementById('propModalTags');
-    tagsContainer.innerHTML = tags.map(tag => `<span>${tag.trim()}</span>`).join('');
+    tagsContainer.innerHTML = tags.map(tag => `<span>${sanitize(tag.trim())}</span>`).join('');
 
     const plans2 = card.getAttribute('data-plans2');
     const plansContainer = document.getElementById('propModalPlans');
@@ -101,7 +137,7 @@ class PropertyManager {
       if (plans) {
         const buildTable = (data) => {
           const rows = JSON.parse(data).map(p =>
-            `<tr><td>${p.plotSize}</td><td>${p.price}</td><td>${p.initialDeposit}</td><td>${p.paymentPlan}</td></tr>`
+            `<tr><td>${sanitize(String(p.plotSize))}</td><td>${sanitize(String(p.price))}</td><td>${sanitize(String(p.initialDeposit))}</td><td>${sanitize(String(p.paymentPlan))}</td></tr>`
           ).join('');
           return `<table class="prop-plans-table"><thead><tr><th>Plot Size</th><th>Price</th><th>Initial Deposit</th><th>Payment Plan</th></tr></thead><tbody>${rows}</tbody></table>`;
         };
@@ -180,7 +216,8 @@ class PropertyManager {
       
       const matchesDoc = !docFilter || 
                         (docFilter === 'excision' && property.documentation.toLowerCase().includes('excision')) ||
-                        (docFilter === 'coo' && property.documentation.toLowerCase().includes('occupancy'));
+                        (docFilter === 'coo' && property.documentation.toLowerCase().includes('occupancy')) ||
+                        (docFilter === 'survey' && property.documentation.toLowerCase().includes('survey'));
 
       return matchesSearch && matchesType && matchesPrice && matchesDoc;
     });
@@ -240,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (search) {
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
-      searchInput.value = search;
+      searchInput.value = search.replace(/[<>"'&]/g, c => ({'<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#x27;','&':'&amp;'}[c]));
       setTimeout(() => filterProperties(), 500);
     }
   }
