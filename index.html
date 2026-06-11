@@ -100,7 +100,7 @@
       <div class="lw-why-step">
         <div class="lw-why-step-icon"><svg width="32" height="32" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <h3>Verified Titles</h3>
-        <p>C of O, Excision, or R of O on every property.</p>
+        <p>C of O or Government Excision on every property.</p>
       </div>
       <div class="lw-why-step-arrow"></div>
       <div class="lw-why-step">
@@ -118,7 +118,7 @@
       <div class="lw-why-step">
         <div class="lw-why-step-icon"><svg width="32" height="32" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <h3>Zero-Interest Plans</h3>
-        <p>Spread payments over 6–24 months, no extra cost.</p>
+        <p>Spread payments over 6 months, no extra cost.</p>
       </div>
       <div class="lw-why-step-arrow"></div>
       <div class="lw-why-step">
@@ -130,7 +130,7 @@
       <div class="lw-why-step">
         <div class="lw-why-step-icon"><svg width="32" height="32" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>2,500+ Families</h3>
-        <p>Every project delivered on time since 2015.</p>
+        <p>Every project delivered on time since 2022 .</p>
       </div>
     </div>
     
@@ -179,7 +179,7 @@
       <div class="lw-testi-card">
         <p>"I bought a plot in Toff Residence Epe in 2022 for ₦4.5M. It's now valued at over ₦8M. Best investment decision I ever made."</p>
         <div class="lw-testi-author">
-          <div class="lw-testi-avatar">AO</div>
+          <div class="lw-testi-avatar">AO</div>  
           <div>
             <strong>Adebayo Okafor</strong>
             <span>Lagos, Nigeria</span>
@@ -202,7 +202,7 @@
           <div class="lw-testi-avatar">EM</div>
           <div>
             <strong>Emeka Madu</strong>
-            <span>Port Harcourt, Nigeria</span>
+            <span>Ibadan, Nigeria</span>
           </div>
         </div>
       </div>
@@ -249,18 +249,23 @@
             <label for="cf-property">Property of Interest</label>
             <select id="cf-property" name="property">
               <option value="">Select a property&hellip;</option>
-              <option>Toff Residence &ndash; Epe, Lagos</option>
-              <option>Eyitayo Estate &ndash; Ido, Ibadan</option>
-              <option>Toff Estate Moniya &ndash; Ibadan</option>
-              <option>Toff Gardens &ndash; Kuje, Abuja</option>
+              <option>Eiyatayo Estate &ndash; Ido, Ibadan</option>
+              <option>Eyiitayo Bungalow &ndash; Ido, Ibadan</option>
+              <option>Cherry Hills Homes &amp; Apartments &ndash; Ajah, Lagos</option>
+              <option>Toff Residence &ndash; Ibeju-Lekki, Lagos</option>
+              <option>Toff Green Estate 1&amp;2 &ndash; Epe, Lagos</option>
+              <option>Eyitayo City &ndash; Ido, Ibadan</option>
+              <option>Eyitayo Residence &ndash; Moniya, Ibadan</option>
+              <option>Toff Court Apartments &ndash; Sangotedo, Lagos</option>
               <option>General Enquiry</option>
             </select>
           </div>
         </div>
         <div class="cf-group">
           <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" rows="4" placeholder="Tell us what you're looking for&hellip;" required maxlength="1000"></textarea>
+          <textarea id="cf-message" name="message" rows="4" placeholder="Tell us what you're looking for&hellip;" required maxlength="500"></textarea>
           <span class="cf-error" id="err-message"></span>
+          <span id="cf-char-count" style="font-size:0.75rem;color:#94a3b8;text-align:right;display:block;">500 characters remaining</span>
         </div>
         <button type="submit" class="cf-submit">Send Message</button>
         <p class="cf-success" id="formSuccess">&#10003;&nbsp; Thank you! We&rsquo;ll be in touch shortly.</p>
@@ -435,87 +440,7 @@
 
 <script src="./assets/js/nav.js" defer></script>
 <script src="./assets/js/scroll-animations.js" defer></script>
-<script src="./assets/js/properties.js" defer></script>
-<script>
-  // Scroll to hash on page load (e.g. from ../index.html#contact)
-  window.addEventListener('DOMContentLoaded', () => {
-    if (window.location.hash) {
-      const target = document.querySelector(window.location.hash);
-      if (target) {
-        setTimeout(() => {
-          const offset = document.querySelector('header').offsetHeight;
-          const top = target.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top, behavior: 'smooth' });
-        }, 400);
-      }
-    }
-  });
-
-  document.getElementById('bk-date').min = new Date().toISOString().split('T')[0];
-
-  function openBookingModal() {
-    const title = document.getElementById('propModalTitle').textContent;
-    document.getElementById('bk-property').value = title;
-    document.getElementById('bk-success').style.display = 'none';
-    document.getElementById('bookingForm').reset();
-    document.getElementById('bk-property').value = title;
-    document.getElementById('bk-date').min = new Date().toISOString().split('T')[0];
-    document.getElementById('bookingModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  document.getElementById('bookingClose').addEventListener('click', () => {
-    document.getElementById('bookingModal').classList.remove('active');
-    document.body.style.overflow = '';
-  });
-
-  document.getElementById('bookingModal').addEventListener('click', e => {
-    if (e.target === document.getElementById('bookingModal')) {
-      document.getElementById('bookingModal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-
-  document.getElementById('bookingForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    // Honeypot check
-    if (this.querySelector('input[name="website"]').value) return;
-    let valid = true;
-    const phoneRegex = /^[\+]?[0-9\s\-\(\)]{7,20}$/;
-    const fields = [
-      { id: 'bk-name',  err: 'bk-err-name',  msg: 'Please enter your name.' },
-      { id: 'bk-phone', err: 'bk-err-phone', msg: 'Please enter a valid phone number.', pattern: phoneRegex },
-      { id: 'bk-email', err: 'bk-err-email', msg: 'Please enter a valid email.', pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
-      { id: 'bk-date',  err: 'bk-err-date',  msg: 'Please select a date.' }
-    ];
-    fields.forEach(f => {
-      const el = document.getElementById(f.id);
-      const errEl = document.getElementById(f.err);
-      const val = el.value.trim();
-      if (!val || (f.pattern && !f.pattern.test(val))) {
-        errEl.textContent = f.msg; el.classList.add('cf-invalid'); valid = false;
-      } else {
-        errEl.textContent = ''; el.classList.remove('cf-invalid');
-      }
-    });
-    if (!valid) return;
-
-    const sanitizeInput = str => str.replace(/[<>"'&]/g, c => ({'<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#x27;','&':'&amp;'}[c]));
-    const name     = sanitizeInput(document.getElementById('bk-name').value.trim());
-    const phone    = sanitizeInput(document.getElementById('bk-phone').value.trim());
-    const email    = sanitizeInput(document.getElementById('bk-email').value.trim());
-    const property = sanitizeInput(document.getElementById('bk-property').value);
-    const date     = sanitizeInput(document.getElementById('bk-date').value);
-    const time     = sanitizeInput(document.getElementById('bk-time').value);
-    const notes    = sanitizeInput(document.getElementById('bk-notes').value.trim() || 'None');
-
-    const message = `Hello Toff Homes, I would like to book a site inspection.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Email:* ${encodeURIComponent(email)}%0A*Property:* ${encodeURIComponent(property)}%0A*Date:* ${encodeURIComponent(date)}%0A*Time:* ${encodeURIComponent(time)}%0A*Notes:* ${encodeURIComponent(notes)}`;
-
-    window.open(`https://wa.me/2348094442983?text=${message}`, '_blank');
-
-    document.getElementById('bk-success').style.display = 'block';
-    this.reset();
-  });
-</script>
+<script src="./assets/js/homeProperties.js" defer></script>
+<script src="./assets/js/contactForm.js" defer></script>
 </body>
 </html>

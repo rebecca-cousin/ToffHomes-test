@@ -67,7 +67,7 @@ async function loadHomeProperties() {
 
       const desc = document.createElement('p');
       desc.className = 'lw-dev-desc';
-      desc.textContent = p.description.replace(/<[^>]*>/g, '').substring(0, 120) + '...';
+      desc.textContent = p.description.replace(/<[^>]*>/g, '').substring(0, 90) + '...';
       body.appendChild(desc);
 
       const tags = document.createElement('div');
@@ -257,7 +257,7 @@ if (contactForm) {
       const property = document.getElementById('cf-property').value || 'Not specified';
       const message  = document.getElementById('cf-message').value.trim();
 
-      const mailto = `mailto:rebecousin@gmail.com?subject=${encodeURIComponent('Enquiry about ' + property)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nProperty of Interest: ' + property + '\n\nMessage:\n' + message)}`;
+      const mailto = `mailto:hello@toffhomes.com?subject=${encodeURIComponent('Enquiry about ' + property)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nProperty of Interest: ' + property + '\n\nMessage:\n' + message)}`;
 
       window.location.href = mailto;
 

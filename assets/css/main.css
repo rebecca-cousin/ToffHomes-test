@@ -432,8 +432,6 @@ nav a:hover {
   flex-direction: column;
   flex: 0 0 calc(33.333% - 16px);
   scroll-snap-align: start;
-  height: 100%;
-  align-self: stretch;
 }
 
 @media (max-width: 768px) {
