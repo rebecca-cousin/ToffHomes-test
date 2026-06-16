@@ -5,7 +5,6 @@
   <link rel="icon" href="./assets/img/logo.jpg" />
 
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Toff Homes | Premium Real Estate in Nigeria</title>
@@ -49,7 +48,7 @@
       <p class="lw-hero-tag">REAL ESTATE INVESTMENT IN NIGERIA</p>
       <h1>Build Wealth Through<br/>Real Estate Investment</h1>
       <p class="lw-hero-sub">Own a piece of Nigeria's fastest-growing real estate market. 
-        Premium lands and homes in Lagos, Abuja, and Ibadan starting from ₦500,000.</p>
+        Premium lands and homes in Lagos, Ogun, and Ibadan starting from ₦500,000.</p>
       <div class="lw-hero-btns">
       </div>
     </div>
@@ -58,7 +57,7 @@
   <!-- STATS BAR -->
   <section class="lw-stats">
     <div class="lw-stat">
-      <span class="lw-stat-num" data-target="2500" data-suffix="+">2,500+</span>
+      <span class="lw-stat-num" data-target="500" data-suffix="+">500+</span>
       <span class="lw-stat-label">Happy Homeowners</span>
     </div>
     <div class="lw-stat">
@@ -66,11 +65,11 @@
       <span class="lw-stat-label">Active Developments</span>
     </div>
     <div class="lw-stat">
-      <span class="lw-stat-num" data-target="50" data-prefix="₦" data-suffix="B+">₦50B+</span>
+      <span class="lw-stat-num" data-target="700" data-prefix="₦" data-suffix="M+">₦700M+</span>
       <span class="lw-stat-label">Properties Delivered</span>
     </div>
     <div class="lw-stat">
-      <span class="lw-stat-num" data-target="8">8</span>
+      <span class="lw-stat-num" data-target="3">3</span>
       <span class="lw-stat-label">States Covered</span>
     </div>
   </section>
@@ -230,24 +229,24 @@
         <div class="cf-row">
           <div class="cf-group">
             <label for="cf-name">Full Name</label>
-            <input type="text" id="cf-name" name="name" placeholder="Adebayo Okafor" required maxlength="100" />
+            <input type="text" id="cf-name" name="name" placeholder="Adebayo Okafor" required maxlength="100" autocomplete="name" />
             <span class="cf-error" id="err-name"></span>
           </div>
           <div class="cf-group">
             <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" placeholder="you@example.com" required maxlength="150" />
+            <input type="email" id="cf-email" name="email" placeholder="you@example.com" required maxlength="150" autocomplete="email" />
             <span class="cf-error" id="err-email"></span>
           </div>
         </div>
         <div class="cf-row">
           <div class="cf-group">
             <label for="cf-phone">Phone</label>
-            <input type="tel" id="cf-phone" name="phone" placeholder="+234 800 000 0000" required maxlength="20" />
+            <input type="tel" id="cf-phone" name="phone" placeholder="+234 800 000 0000" required maxlength="20" autocomplete="tel" />
             <span class="cf-error" id="err-phone"></span>
           </div>
           <div class="cf-group">
             <label for="cf-property">Property of Interest</label>
-            <select id="cf-property" name="property">
+            <select id="cf-property" name="property" autocomplete="off">
               <option value="">Select a property&hellip;</option>
               <option>Eiyatayo Estate &ndash; Ido, Ibadan</option>
               <option>Eyiitayo Bungalow &ndash; Ido, Ibadan</option>
@@ -263,7 +262,7 @@
         </div>
         <div class="cf-group">
           <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" rows="4" placeholder="Tell us what you're looking for&hellip;" required maxlength="500"></textarea>
+          <textarea id="cf-message" name="message" rows="4" placeholder="Tell us what you're looking for&hellip;" required maxlength="500" autocomplete="off"></textarea>
           <span class="cf-error" id="err-message"></span>
           <span id="cf-char-count" style="font-size:0.75rem;color:#94a3b8;text-align:right;display:block;">500 characters remaining</span>
         </div>
@@ -389,34 +388,34 @@
         <input type="text" name="website" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="booking-row">
           <div class="booking-group">
-            <label>Full Name</label>
-            <input type="text" id="bk-name" placeholder="Adebayo Okafor" required maxlength="100" />
+            <label for="bk-name">Full Name</label>
+            <input type="text" id="bk-name" placeholder="Adebayo Okafor" required maxlength="100" autocomplete="name" />
             <span class="booking-error" id="bk-err-name"></span>
           </div>
           <div class="booking-group">
-            <label>Phone Number</label>
-            <input type="tel" id="bk-phone" placeholder="+234 800 000 0000" required maxlength="20" />
+            <label for="bk-phone">Phone Number</label>
+            <input type="tel" id="bk-phone" placeholder="+234 800 000 0000" required maxlength="20" autocomplete="tel" />
             <span class="booking-error" id="bk-err-phone"></span>
           </div>
         </div>
         <div class="booking-group">
-          <label>Email Address</label>
-          <input type="email" id="bk-email" placeholder="you@example.com" required maxlength="150" />
+          <label for="bk-email">Email Address</label>
+          <input type="email" id="bk-email" placeholder="you@example.com" required maxlength="150" autocomplete="email" />
           <span class="booking-error" id="bk-err-email"></span>
         </div>
         <div class="booking-group">
-          <label>Property</label>
-          <input type="text" id="bk-property" readonly />
+          <label for="bk-property">Property</label>
+          <input type="text" id="bk-property" readonly autocomplete="off" />
         </div>
         <div class="booking-row">
           <div class="booking-group">
-            <label>Preferred Date</label>
-            <input type="date" id="bk-date" required />
+            <label for="bk-date">Preferred Date</label>
+            <input type="date" id="bk-date" required autocomplete="off" />
             <span class="booking-error" id="bk-err-date"></span>
           </div>
           <div class="booking-group">
-            <label>Preferred Time</label>
-            <select id="bk-time">
+            <label for="bk-time">Preferred Time</label>
+            <select id="bk-time" autocomplete="off">
               <option value="9:00 AM">9:00 AM</option>
               <option value="10:00 AM">10:00 AM</option>
               <option value="11:00 AM">11:00 AM</option>
@@ -429,8 +428,8 @@
           </div>
         </div>
         <div class="booking-group">
-          <label>Additional Notes <span style="color:#aaa;font-weight:400">(optional)</span></label>
-          <textarea id="bk-notes" rows="3" placeholder="Any questions or special requests..."></textarea>
+          <label for="bk-notes">Additional Notes <span style="color:#aaa;font-weight:400">(optional)</span></label>
+          <textarea id="bk-notes" rows="3" placeholder="Any questions or special requests..." autocomplete="off"></textarea>
         </div>
         <button type="submit" class="booking-submit">Confirm Booking</button>
         <p class="booking-success" id="bk-success">&#10003; Booking received! We'll contact you shortly to confirm.</p>
