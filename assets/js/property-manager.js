@@ -13,18 +13,20 @@ class PropertyManager {
     this.currentImages = [];
   }
 
+  normalizeImagePath(path) {
+    if (!path) return '';
+    if (path.startsWith('/assets/')) {
+      return `..${path}`;
+    }
+    return path;
+  }
+
   async loadProperties() {
     try {
       const response = await fetch('../data/properties.json');
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       this.properties = await response.json();
-      const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-      if (isLocalhost) {
-        this.properties = this.properties.map(p => ({
-          ...p,
-          images: p.images.map(img => img.startsWith('/assets/img/') ? '/real-estate' + img : img)
-        }));
-      }
+
       this.filteredProperties = [...this.properties];
       this.renderProperties();
       this.updateResultsCount();
@@ -47,12 +49,11 @@ class PropertyManager {
   createPropertyCard(property) {
     const card = document.createElement('div');
     card.className = 'community-card';
+    card.dataset.propertyId = property.id;
     card.setAttribute('data-title', sanitize(property.title));
     card.setAttribute('data-location', sanitize(property.location));
     card.setAttribute('data-price', sanitize(property.price));
     card.setAttribute('data-tags', property.tags.map(t => sanitize(t)).join(','));
-    card.setAttribute('data-desc', sanitize(property.description));
-    card.setAttribute('data-imgs', property.images.map(i => sanitize(i)).join(','));
     if (property.pricingPlans) card.setAttribute('data-plans', JSON.stringify(property.pricingPlans));
     if (property.pricingPlans2) card.setAttribute('data-plans2', JSON.stringify(property.pricingPlans2));
 
@@ -64,7 +65,7 @@ class PropertyManager {
     }
 
     const img = document.createElement('img');
-    img.src = sanitize(property.images[0]);
+    img.src = this.normalizeImagePath(property.images[0]);
     img.alt = sanitize(property.title);
     img.loading = 'lazy';
     card.appendChild(img);
@@ -115,18 +116,17 @@ class PropertyManager {
 
   openModal(card) {
     const modal = document.getElementById('propModal');
-    const title = card.getAttribute('data-title');
-    const location = card.getAttribute('data-location');
-    const price = card.getAttribute('data-price');
-    const description = card.getAttribute('data-desc');
-    const tags = card.getAttribute('data-tags').split(',');
-    const images = card.getAttribute('data-imgs').split(',');
-    const plans = card.getAttribute('data-plans');
+    const propertyId = parseInt(card.dataset.propertyId, 10);
+    const property = this.properties.find(p => p.id === propertyId) || this.filteredProperties.find(p => p.id === propertyId);
+    if (!property) return;
 
-    document.getElementById('propModalTitle').textContent = title;
-    document.getElementById('propModalLocation').textContent = location;
-    document.getElementById('propModalPrice').textContent = price;
-    document.getElementById('propModalDesc').textContent = description;
+    document.getElementById('propModalTitle').textContent = property.title;
+    document.getElementById('propModalLocation').textContent = property.location;
+    document.getElementById('propModalPrice').textContent = property.price;
+    document.getElementById('propModalDesc').innerHTML = property.description;
+    const tags = property.tags;
+    const images = property.images || [];
+    const plans = card.getAttribute('data-plans');
 
     const tagsContainer = document.getElementById('propModalTags');
     tagsContainer.innerHTML = tags.map(tag => `<span>${sanitize(tag.trim())}</span>`).join('');
@@ -152,7 +152,7 @@ class PropertyManager {
       }
     }
 
-    this.currentImages = images;
+    this.currentImages = images.map(img => this.normalizeImagePath(img));
     this.currentSlideIndex = 0;
     this.updateModalImage();
     this.createSlideDots();
@@ -200,15 +200,35 @@ class PropertyManager {
     this.updateDots();
   }
 
+  parsePriceSearchTerm(term) {
+    if (!term) return null;
+    const cleanTerm = term.toLowerCase().trim();
+    const digits = cleanTerm.replace(/[^0-9]/g, '');
+    if (!digits) return null;
+    let value = parseInt(digits, 10);
+    if (/m\b|million/.test(cleanTerm)) {
+      value *= 1000000;
+    } else if (/k\b|thousand/.test(cleanTerm)) {
+      value *= 1000;
+    }
+    return value;
+  }
+
   filterProperties() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const priceSearchValue = this.parsePriceSearchTerm(searchTerm);
     const typeFilter = document.getElementById('typeFilter').value.toLowerCase();
     const priceFilter = parseInt(document.getElementById('priceFilter').value) || Infinity;
     const docFilter = document.getElementById('bedsFilter').value.toLowerCase();
 
     this.filteredProperties = this.properties.filter(property => {
+      const normalizedPropertyPrice = property.price.toLowerCase().replace(/[^0-9]/g, '');
+      const normalizedSearchDigits = searchTerm.replace(/[^0-9]/g, '');
       const matchesSearch = property.title.toLowerCase().includes(searchTerm) ||
-                           property.location.toLowerCase().includes(searchTerm);
+                           property.location.toLowerCase().includes(searchTerm) ||
+                           property.price.toLowerCase().includes(searchTerm) ||
+                           (normalizedSearchDigits && normalizedPropertyPrice.includes(normalizedSearchDigits)) ||
+                           (priceSearchValue && property.priceValue === priceSearchValue);
       
       const matchesType = !typeFilter || property.category === typeFilter;
       

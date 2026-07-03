@@ -21,21 +21,18 @@ async function loadHomeProperties() {
     }
     const response = await fetch('./data/properties.json');
     const rawProperties = await response.json();
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    const properties = rawProperties.map(p => ({
-      ...p,
-      images: p.images.map(img => isLocalhost && img.startsWith('/assets/img/') ? '/real-estate' + img : img)
-    }));
+    const properties = rawProperties;
     const first3 = properties.slice(0, 3);
     carousel.innerHTML = '';
     first3.forEach(p => {
       const card = document.createElement('div');
       card.className = 'lw-dev-card';
+      const plainDesc = p.description.replace(/<[^>]*>/g, '');
       card.dataset.title = p.title;
       card.dataset.location = p.location;
       card.dataset.price = p.price;
       card.dataset.tags = p.tags.join(',');
-      card.dataset.desc = p.description;
+      card.dataset.desc = plainDesc;
       card.dataset.imgs = p.images.join(',');
       if (p.pricingPlans) card.dataset.plans = JSON.stringify(p.pricingPlans);
       if (p.pricingPlans2) card.dataset.plans2 = JSON.stringify(p.pricingPlans2);
